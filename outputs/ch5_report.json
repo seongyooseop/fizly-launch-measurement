@@ -46,7 +46,7 @@
   },
   {
    "line": "Sustain video (short + online)",
-   "action": "Hold; step-down test (-30% in matched regions); keep alternating heavy and light blocks",
+   "action": "Hold; step-down test on short video (-30% in matched regions, Q1); keep alternating heavy and light blocks",
    "why": "Marginal return about 3.7 vs break-even 3.3"
   },
   {
@@ -78,9 +78,9 @@
  "agenda": [
   {
    "quarter": "Q1 2027",
-   "question": "How much sustain video does FIZLY Zero need?",
-   "study": "Geo test: sustain video -30% in matched regions, stores + online, with a cooldown read",
-   "decides": "Sustain weight; the biggest line"
+   "question": "How much sustain short video does Zero need, and what does short video alone return over months?",
+   "study": "Geo test on short video only (online video unchanged): -30% in matched regions for 12 weeks, stores + online, read at week 12 and again at week 20 to catch carry-over",
+   "decides": "Sustain weight, and the split the model cannot make"
   },
   {
    "quarter": "Q2 2027",
@@ -109,7 +109,7 @@
  ],
  "not_sure": [
   "The contribution margins: 30% of shelf sales and 45% online are our assumptions; at 25-40% on shelf sales, break-even runs from 4.0 to 2.5.",
-  "How the video return splits between short video and online video: they build the same awareness and no test separated them.",
+  "How the video return splits between short video and online video: they build the same awareness and no test so far separated them. The Q1 test moves short video alone for long enough to see carry-over.",
   "The model's marginal return for sustain video (3.7): in this lab the model runs high on it; the Q1 test measures it directly.",
   "Returns beyond week 104: the model assumes awareness keeps fading at the rate it learned."
  ],
@@ -161,7 +161,7 @@
    },
    {
     "line": "유지 기간 영상(숏폼+온라인)",
-    "action": "유지, 매칭 지역 30% 축소 실험, 격주 강약 운영 유지",
+    "action": "유지, Q1 숏폼 매칭 지역 30% 축소 실험, 격주 강약 운영 유지",
     "why": "한계 수익 약 3.7원 vs 손익분기 3.3원"
    },
    {
@@ -193,9 +193,9 @@
   "agenda": [
    {
     "quarter": "2027 Q1",
-    "question": "제로에 유지 기간 영상이 얼마나 필요한가?",
-    "study": "지역 실험: 매칭 지역 유지 영상 30% 축소, 매장+온라인, 쿨다운 판독",
-    "decides": "유지 비중(가장 큰 항목)"
+    "question": "유지 기간 숏폼 영상이 얼마나 필요하고, 숏폼만의 수개월 효과는 얼마인가?",
+    "study": "숏폼만 움직이는 지역 실험(온라인 영상은 그대로): 매칭 지역 30% 축소 12주, 매장+온라인, 12주 차와 이월 효과를 보는 20주 차에 두 번 판독",
+    "decides": "유지 비중, 모델이 가르지 못한 두 영상 채널 몫"
    },
    {
     "quarter": "2027 Q2",
@@ -224,7 +224,7 @@
   ],
   "not_sure": [
    "공헌이익률(매장 판매가의 30%, 온라인 45%)은 가정입니다. 매장 기준 25~40%라면 손익분기는 4.0~2.5원입니다.",
-   "영상 효과가 숏폼과 온라인 영상 사이에 어떻게 나뉘는지는 모릅니다. 둘이 같은 인지도를 쌓고, 이를 가르는 실험이 없었습니다.",
+   "영상 효과가 숏폼과 온라인 영상 사이에 어떻게 나뉘는지는 아직 모릅니다. 둘이 같은 인지도를 쌓고, 지금까지 이를 가른 실험이 없었습니다. Q1 실험이 숏폼만 충분히 오래 움직여 이월 효과까지 봅니다.",
    "유지 영상의 한계 수익(3.7원)은 모델이 높게 보는 경향이 있습니다. Q1 실험이 직접 측정합니다.",
    "104주 이후의 수익은 모델이 학습한 속도로 인지도가 줄어든다고 가정한 값입니다."
   ]

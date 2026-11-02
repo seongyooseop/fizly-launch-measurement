@@ -34,6 +34,22 @@ READ_AWARENESS_PP = 5.0               # typical single-flight awareness lift is 
 READ_CLS_LIFT = 0.15                  # a lift study that cannot see 15% is not worth running
 READ_GEO_IROAS = 1.0
 PLATFORM_SHARE = 0.55                 # share of online orders placed by platform users
+# Service levels: who does the work, how long it takes, and how many one
+# partner can carry in a quarter. Partner days and the quarterly mix are
+# planning assumptions (about 50 working days a quarter go to studies; the rest
+# to programs, product feedback and enablement), not outputs of the lab.
+SERVICE = [
+    {"level": "Self-serve", "who": "Advertiser or agency sets it up from the platform's templates; the partner reviews the readout",
+     "studies": "Brand lift or conversion lift from a template", "calendar_weeks": "5-7 (flight + readout)",
+     "partner_days": 0.5, "per_quarter": 16},
+    {"level": "Standard", "who": "Partner sizes the holdout from history, agrees the rules, presents the readout",
+     "studies": "Brand lift and conversion lift in one flight", "calendar_weeks": "8-10",
+     "partner_days": 3, "per_quarter": 6},
+    {"level": "Deep", "who": "Partner plans with advertiser and agency, sizes regions, runs in-flight checks, calibrates the MMM, writes the readout",
+     "studies": "Brand lift, conversion lift, geo test on sell-out, MMM calibration (this case)",
+     "calendar_weeks": "12-14 (2 design, 4 brand lift, 6 test, 2 cooldown)", "partner_days": 12, "per_quarter": 2},
+]
+DEEP_MIN_BUDGET_M = 60                # below this a geo test may be readable but is rarely worth a deep engagement yet
 
 
 def main():
@@ -68,26 +84,35 @@ def main():
             studies.append("Brand lift" if aw_mde <= READ_AWARENESS_PP else "Brand lift (ad recall only)")
             if cls_mde <= READ_CLS_LIFT:
                 studies.append("Conversion lift")
-            if off >= 0.5 and geo_iroas <= READ_GEO_IROAS:
+            geo_ok = off >= 0.5 and geo_iroas <= READ_GEO_IROAS and b >= DEEP_MIN_BUDGET_M
+            if geo_ok:
                 studies.append("Geo test on sell-out")
-            payback = ("Geo test (stores + online)" if off >= 0.5 and geo_iroas <= READ_GEO_IROAS
+            payback = ("Geo test (stores + online)" if geo_ok
                        else "Conversion lift" if off < 0.5 and cls_mde <= READ_CLS_LIFT
-                       else "Not readable yet: pool flights or regions, or wait for MMM history")
-            row["by_offline"].append({"offline": off, "cls_mde_rel": cls_mde, "studies": studies, "payback_answer": payback})
+                       else "Online only for now: stores need a geo test, worth it once the budget grows"
+                       if off >= 0.5 else "Not readable yet: pool flights, or wait for MMM history")
+            service = "Deep" if geo_ok else "Self-serve" if b <= TIERS_M[0] else "Standard"
+            row["by_offline"].append({"offline": off, "cls_mde_rel": cls_mde, "studies": studies,
+                                      "payback_answer": payback, "service": service})
         tiers.append(row)
-    out = {"tiers": tiers, "offline": OFFLINE, "fizly_month_m": fizly_month_m,
+    days = sum(x["partner_days"] * x["per_quarter"] for x in SERVICE)
+    out = {"tiers": tiers, "offline": OFFLINE, "fizly_month_m": fizly_month_m, "service_levels": SERVICE,
+           "quarter_mix": {x["level"]: x["per_quarter"] for x in SERVICE}, "quarter_partner_days": days,
            "assumptions": ["Sales scale with video budget at FIZLY's ratio "
                            f"({sales_per_video_won:.0f} won of sales per won of monthly video budget).",
                            "Regional noise as a share of sales grows as 1 / sqrt(sales) for smaller brands.",
                            f"Readable: awareness detectable at {READ_AWARENESS_PP:.0f}pp or less; conversion lift detects a "
                            f"{100 * READ_CLS_LIFT:.0f}% lift; geo test detects a total return of {READ_GEO_IROAS:.1f}.",
-                           "A geo test needs region-level store data, so it is offered only where stores are half of sales or more."]}
+                           "A geo test needs region-level store data, so it is offered only where stores are half of sales or more.",
+                           f"Service level: deep where a geo test answers payback and the budget is {DEEP_MIN_BUDGET_M}M KRW a month or more; "
+                           f"self-serve at {TIERS_M[0]}M; standard otherwise. Partner days per study are planning assumptions."]}
     (OUT / "program_eligibility.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
     for r in tiers:
         print(f"{r['budget_m']:>4}M/month: awareness MDE {r['awareness_mde_pp']:.1f}pp, recall {r['recall_mde_pp']:.1f}pp, "
               f"geo min iROAS {r['geo_min_iroas']:.2f}")
         for c in r["by_offline"]:
-            print(f"    stores {c['offline']:.0%}: CLS MDE {100 * c['cls_mde_rel']:.1f}% | {', '.join(c['studies'])} | payback: {c['payback_answer']}")
+            print(f"    stores {c['offline']:.0%}: {c['service']:10s} CLS MDE {100 * c['cls_mde_rel']:.1f}% | {', '.join(c['studies'])} | payback: {c['payback_answer']}")
+    print(f"A quarter for one partner: {out['quarter_mix']} = {days:.0f} partner days")
 
 
 if __name__ == "__main__":

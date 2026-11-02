@@ -16,27 +16,28 @@
       "Brand lift (ad recall only)",
       "Conversion lift"
      ],
-     "payback_answer": "Conversion lift"
+     "payback_answer": "Conversion lift",
+     "service": "Self-serve"
     },
     {
      "offline": 0.5,
      "cls_mde_rel": 0.09440472107586434,
      "studies": [
       "Brand lift (ad recall only)",
-      "Conversion lift",
-      "Geo test on sell-out"
+      "Conversion lift"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Online only for now: stores need a geo test, worth it once the budget grows",
+     "service": "Self-serve"
     },
     {
      "offline": 0.75,
      "cls_mde_rel": 0.13350843689753653,
      "studies": [
       "Brand lift (ad recall only)",
-      "Conversion lift",
-      "Geo test on sell-out"
+      "Conversion lift"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Online only for now: stores need a geo test, worth it once the budget grows",
+     "service": "Self-serve"
     }
    ]
   },
@@ -56,7 +57,8 @@
       "Brand lift",
       "Conversion lift"
      ],
-     "payback_answer": "Conversion lift"
+     "payback_answer": "Conversion lift",
+     "service": "Standard"
     },
     {
      "offline": 0.5,
@@ -66,7 +68,8 @@
       "Conversion lift",
       "Geo test on sell-out"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Geo test (stores + online)",
+     "service": "Deep"
     },
     {
      "offline": 0.75,
@@ -76,7 +79,8 @@
       "Conversion lift",
       "Geo test on sell-out"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Geo test (stores + online)",
+     "service": "Deep"
     }
    ]
   },
@@ -96,7 +100,8 @@
       "Brand lift",
       "Conversion lift"
      ],
-     "payback_answer": "Conversion lift"
+     "payback_answer": "Conversion lift",
+     "service": "Standard"
     },
     {
      "offline": 0.5,
@@ -106,7 +111,8 @@
       "Conversion lift",
       "Geo test on sell-out"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Geo test (stores + online)",
+     "service": "Deep"
     },
     {
      "offline": 0.75,
@@ -116,7 +122,8 @@
       "Conversion lift",
       "Geo test on sell-out"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Geo test (stores + online)",
+     "service": "Deep"
     }
    ]
   },
@@ -136,7 +143,8 @@
       "Brand lift",
       "Conversion lift"
      ],
-     "payback_answer": "Conversion lift"
+     "payback_answer": "Conversion lift",
+     "service": "Standard"
     },
     {
      "offline": 0.5,
@@ -146,7 +154,8 @@
       "Conversion lift",
       "Geo test on sell-out"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Geo test (stores + online)",
+     "service": "Deep"
     },
     {
      "offline": 0.75,
@@ -156,7 +165,8 @@
       "Conversion lift",
       "Geo test on sell-out"
      ],
-     "payback_answer": "Geo test (stores + online)"
+     "payback_answer": "Geo test (stores + online)",
+     "service": "Deep"
     }
    ]
   }
@@ -167,10 +177,43 @@
   0.75
  ],
  "fizly_month_m": 113.54039726149036,
+ "service_levels": [
+  {
+   "level": "Self-serve",
+   "who": "Advertiser or agency sets it up from the platform's templates; the partner reviews the readout",
+   "studies": "Brand lift or conversion lift from a template",
+   "calendar_weeks": "5-7 (flight + readout)",
+   "partner_days": 0.5,
+   "per_quarter": 16
+  },
+  {
+   "level": "Standard",
+   "who": "Partner sizes the holdout from history, agrees the rules, presents the readout",
+   "studies": "Brand lift and conversion lift in one flight",
+   "calendar_weeks": "8-10",
+   "partner_days": 3,
+   "per_quarter": 6
+  },
+  {
+   "level": "Deep",
+   "who": "Partner plans with advertiser and agency, sizes regions, runs in-flight checks, calibrates the MMM, writes the readout",
+   "studies": "Brand lift, conversion lift, geo test on sell-out, MMM calibration (this case)",
+   "calendar_weeks": "12-14 (2 design, 4 brand lift, 6 test, 2 cooldown)",
+   "partner_days": 12,
+   "per_quarter": 2
+  }
+ ],
+ "quarter_mix": {
+  "Self-serve": 16,
+  "Standard": 6,
+  "Deep": 2
+ },
+ "quarter_partner_days": 50.0,
  "assumptions": [
   "Sales scale with video budget at FIZLY's ratio (17 won of sales per won of monthly video budget).",
   "Regional noise as a share of sales grows as 1 / sqrt(sales) for smaller brands.",
   "Readable: awareness detectable at 5pp or less; conversion lift detects a 15% lift; geo test detects a total return of 1.0.",
-  "A geo test needs region-level store data, so it is offered only where stores are half of sales or more."
+  "A geo test needs region-level store data, so it is offered only where stores are half of sales or more.",
+  "Service level: deep where a geo test answers payback and the budget is 60M KRW a month or more; self-serve at 30M; standard otherwise. Partner days per study are planning assumptions."
  ]
 }

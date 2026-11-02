@@ -94,7 +94,7 @@ footer { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--gri
   <p>A fictional Korean drink brand launches a zero-sugar line with a heavy short-form video campaign. Three quarters of its sales happen in stores, where no pixel looks.
      This lab plans the measurement with the advertiser and agency, runs a brand lift survey, a conversion lift, a geo test on store sell-out data and a vendor tracker,
      reconciles their answers, and ends with the readout and a product feedback memo. Every number is graded against the hidden truth of the simulated world.</p>
-  <p><span class="chip">All data synthetic</span><span class="chip">No real brand, platform or customer</span></p>
+  <p><span class="chip">All data synthetic</span><span class="chip">No real brand, platform or customer</span><a class="chip" href="FIZLY_case_summary.pdf" style="color:inherit;text-decoration:none">One-page summary (PDF)</a></p>
 </div></header>
 <div class="wrap">
   <nav class="tabs" role="tablist" aria-label="Chapters">
@@ -137,7 +137,8 @@ footer { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--gri
     <div class="panel"><h3>Rules agreed before launch</h3><ol class="steps" id="plan-rules"></ol></div>
     <div class="panel"><p class="q">Beyond FIZLY: which study can each advertiser in the market read?</p>
       <p class="note">The same design math, run for other budgets and sales mixes. A program offers each tier the studies it can read and names the one that answers its payback question.</p>
-      <div class="tbl" id="program"></div><ul class="small" id="program-notes" style="margin:0;padding-left:18px;display:grid;gap:3px"></ul></div>
+      <div class="tbl" id="program"></div><ul class="small" id="program-notes" style="margin:0;padding-left:18px;display:grid;gap:3px"></ul>
+      <h3>Service levels and what one partner can carry</h3><div class="tbl" id="service"></div><p class="note" id="service-note"></p></div>
     <details class="guide"><summary>How to read this tab</summary><ul>
       <li>The timeline is the launch half-year: the heavy flight (weeks 79-90) and when each study runs and is read.</li>
       <li>"Minimum" values come from each study's design step, computed on the advertiser's own history before launch.</li></ul></details>
@@ -324,7 +325,10 @@ function plan() {
   const head = ["Monthly video budget", "Brand lift can detect", ...P.offline.map((o) => `Stores ${Math.round(100 * o)}% of sales`)];
   table($("program"), head, P.tiers.map((t) => ({ hl: Math.abs(t.budget_m - P.fizly_month_m) / P.fizly_month_m < 0.1,
     cells: [`<b>${krw(t.budget_m)}M KRW</b>`, `awareness ±${f1(t.awareness_mde_pp)}pp<br><span class="small">recall ±${f1(t.recall_mde_pp)}pp</span>`,
-      ...t.by_offline.map((c) => `${c.studies.join(" + ")}<br><span class="small">Payback: ${c.payback_answer}</span>`)] })));
+      ...t.by_offline.map((c) => `<b>${c.service}</b>: ${c.studies.join(" + ")}<br><span class="small">Payback: ${c.payback_answer}</span>`)] })));
+  table($("service"), ["Service level", "Who does what", "Studies", "Calendar weeks", "Partner days per study", "A quarter's mix for one partner"],
+    P.service_levels.map((x) => [`<b>${x.level}</b>`, x.who, x.studies, x.calendar_weeks, x.partner_days, x.per_quarter]), [4, 5]);
+  $("service-note").textContent = `That mix uses about ${Math.round(P.quarter_partner_days)} partner days a quarter on studies: ${P.quarter_mix.Deep} deep, ${P.quarter_mix.Standard} standard and ${P.quarter_mix["Self-serve"]} self-serve. The rest of the quarter goes to programs, product feedback and enablement. Days and mix are planning assumptions.`;
   $("program-notes").innerHTML = P.assumptions.map((a) => `<li>${a}</li>`).join("") + `<li>FIZLY's launch flight is about ${krw(P.fizly_month_m)}M KRW a month.</li>`;
 }
 
@@ -380,7 +384,10 @@ function geo() {
   const rows = [["Test weeks, all controls", rd.all_controls, t.test], ["Test weeks, flagged region dropped", rd.flagged_dropped, t.test], ["With 2-week cooldown", rd.with_cooldown, t.test_plus_cooldown]];
   table($("geo-table"), ["Read", "Total iROAS (95% CI)", "Truth", "Stores", "Online"], rows.map(([lab, r, tr], i) => ({ hl: i === 1, cells: [lab, `${f2(r.total.iroas)} [${f2(r.total.iroas_ci[0])}, ${f2(r.total.iroas_ci[1])}]`, f2(tr.iroas_total), `${f2(r.stores.iroas)} <span class="small">(${f2(tr.iroas_offline)})</span>`, `${f2(r.online.iroas)} <span class="small">(${f2(tr.iroas_online)})</span>`] })).concat([{ cells: ["Truth by week 104 (same withheld spend)", "", f2(t.to_week_104.iroas_total), "", ""] }]), [1, 2, 3, 4]);
   const opt = D.ch3d.options;
-  table($("geo-design"), ["Regions dark", "Share of sales", "Detectable iROAS", "Launch sales at risk (KRW M)"], opt.map((o) => ({ hl: Math.abs(o.share - D.ch3d.chosen_share) < 1e-9, cells: [`${Math.round(40 * o.share)} of 40`, `${Math.round(100 * o.sales_share)}%`, f2(o.min_detectable_iroas), `${krw(o.sales_at_risk_m[0])}-${krw(o.sales_at_risk_m[1])}`] })), [1, 2, 3]);
+  const hu = D.ch3d.heavy_up;
+  table($("geo-design"), ["Design", "Measures", "Detectable return", "Launch sales at risk (KRW M)", "Extra media (KRW M)"],
+    opt.map((o) => ({ hl: Math.abs(o.share - D.ch3d.chosen_share) < 1e-9, cells: [`Go-dark, ${Math.round(40 * o.share)} of 40 regions (${Math.round(100 * o.sales_share)}% of sales)`, "average return", f2(o.min_detectable_iroas), `${krw(o.sales_at_risk_m[0])}-${krw(o.sales_at_risk_m[1])}`, "0"] }))
+      .concat([{ cells: [`${hu.design} (platform-side option)`, hu.measures, f2(hu.min_detectable_iroas), "0", krw(hu.extra_media_m)] }]), [2, 3, 4]);
   const mc = G.montecarlo;
   $("geo-diag").innerHTML = `Diagnostic flagged ${G.flagged.join(", ")} (a rival launch); in 40 simulated worlds it caught the rival only ${Math.round(100 * mc.rival_caught)}% of the time. In-flight A/A tests among control regions widen the interval (x${f2(rd.flagged_dropped.total.se_scale)}); with them, intervals covered the truth in ${Math.round(100 * mc.flagged_dropped.coverage)}% of worlds (bias ${f2(mc.flagged_dropped.bias)}).`;
   const tw = G.tracker, xs = tw.map((v) => v.week);

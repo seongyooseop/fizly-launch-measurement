@@ -25,7 +25,7 @@
 | Line | Action | Why |
 |---|---|---|
 | Launch flight (next launch) | Same approach; judge it on half-year sales against break-even, not on a six-week read | Half-year return 4.5 vs break-even 3.3; the six-week read was 1.7 |
-| Sustain video (short + online) | Hold; step-down test (-30% in matched regions); keep alternating heavy and light blocks | Marginal return about 3.7 vs break-even 3.3 |
+| Sustain video (short + online) | Hold; step-down test on short video (-30% in matched regions, Q1); keep alternating heavy and light blocks | Marginal return about 3.7 vs break-even 3.3 |
 | Online bidding targets | Divide platform-reported ROAS by 2.2 | Conversion lift measured how much of the credit is real |
 | Creative | Shift weight to product-first openings (A) | Brand lift, pre-registered metric |
 | Retail media | Cut 30%; holdout test in Q2 | Model 0.84 [0.29, 2.20] vs online break-even 2.22 |
@@ -36,7 +36,7 @@
 
 | Quarter | Question | Study | Decides |
 |---|---|---|---|
-| Q1 2027 | How much sustain video does FIZLY Zero need? | Geo test: sustain video -30% in matched regions, stores + online, with a cooldown read | Sustain weight; the biggest line |
+| Q1 2027 | How much sustain short video does Zero need, and what does short video alone return over months? | Geo test on short video only (online video unchanged): -30% in matched regions for 12 weeks, stores + online, read at week 12 and again at week 20 to catch carry-over | Sustain weight, and the split the model cannot make |
 | Q2 2027 | Does retail media add sales or collect buyers who would come anyway? | Audience holdout on the marketplace (or regions) | Retail media budget |
 | Q3 2027 | How much of search is protecting the brand name vs new demand? | Geo test pausing brand-term search | Search split between brand and generic terms |
 | Q4 2027 | Is the model still right, and does a new creative beat A? | Recalibrate the MMM with Q1-Q3 tests; brand lift with a 30% holdout; tracker boost sample of heavy platform users | 2028 budget and creative |
@@ -44,7 +44,7 @@
 ## What we are not sure about
 
 - The contribution margins: 30% of shelf sales and 45% online are our assumptions; at 25-40% on shelf sales, break-even runs from 4.0 to 2.5.
-- How the video return splits between short video and online video: they build the same awareness and no test separated them.
+- How the video return splits between short video and online video: they build the same awareness and no test so far separated them. The Q1 test moves short video alone for long enough to see carry-over.
 - The model's marginal return for sustain video (3.7): in this lab the model runs high on it; the Q1 test measures it directly.
 - Returns beyond week 104: the model assumes awareness keeps fading at the rate it learned.
 

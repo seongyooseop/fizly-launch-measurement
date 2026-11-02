@@ -36,7 +36,7 @@
    "kpi": "Incremental revenue (stores + online); total iROAS",
    "study": "Geo experiment: video off in matched regions, read from the retail sell-out panel and online sales",
    "weeks": "83-88, read again at 90",
-   "minimum": "12 of 40 regions dark (29% of sales) for 6 weeks; detects a 3.2% drop in their sales, i.e. any total iROAS of 0.49 or more. Half the regions would detect 0.46 but put 176M KRW of launch sales at risk (vs 98M)",
+   "minimum": "12 of 40 regions dark (29% of sales) for 6 weeks; detects a 3.2% drop in their sales, i.e. any total iROAS of 0.49 or more. Half the regions would detect 0.46 but put 176M KRW of launch sales at risk (vs 98M). If the advertiser will not go dark, a +50% heavy-up in the same regions reads the return on extra spend instead (detectable 0.99), with no sales at risk",
    "decision": "Whether the launch weight pays back; budget for the second half",
    "owner": "Measurement partner sizes the regions; agency holds video off there; advertiser shares the sell-out panel"
   },

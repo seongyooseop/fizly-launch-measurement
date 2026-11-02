@@ -9,6 +9,9 @@ conversion lift, a geo test on store sales and an independent brand tracker, rec
 readout (English and Korean), and send the product team a feedback memo. All data is simulated from a known process,
 so every estimate is graded against the truth.
 
+**One-page summary:** [`site/FIZLY_case_summary.pdf`](site/FIZLY_case_summary.pdf) (built from the same outputs by
+`src/build_summary.py`).
+
 **Live demo:** https://seongyooseop.github.io/fizly-launch-measurement/site/ (or open `site/index.html`: one
 self-contained file, nine tabs, each with a "How to read this tab" guide). The cached MMM fits in `models/` (about 7.5 MB)
 are included so the pipeline runs end to end without refitting.
@@ -42,7 +45,8 @@ written by the same code (`src/robustness.py`).
 0. **Measurement plan.** One row per business question: KPI, study, weeks, what each study needs to be readable (from
    its design step on the advertiser's own history), the decision it feeds, who does what, and rules agreed before
    launch. A program view applies the same design math to other advertisers: which study each budget tier and sales
-   mix can read, and which one answers its payback question.
+   mix can read, which one answers its payback question, and which service level (self-serve, standard, deep) it
+   needs, with calendar weeks and partner days per study.
 1. **Brand lift survey** (weeks 79-82). Randomized 20% holdout; one question per respondent. Design shows that precision
    follows the holdout share, not the budget. Ad recall +11.6pp and awareness +5.8pp; consideration and intent
    directional as planned. Respondents are heavy users, so answers are re-weighted by poll chance to describe everyone
@@ -52,7 +56,8 @@ written by the same code (`src/robustness.py`).
    30% the study stays unbiased and gets noisier, while the platform's reported ROAS falls from 1.82 to 0.60 with the
    true return unchanged.
 3. **Stores and tracker.** Geo test: video off in 12 of 40 regions (30% detects nearly the same return as 50% and puts
-   half the launch sales at risk). TBR on weekly sell-out + online. Pre-launch A/A tests under-stated launch-week
+   half the launch sales at risk); a +50% heavy-up in the same regions is priced as the platform-side alternative
+   (reads the marginal return, no sales at risk). TBR on weekly sell-out + online. Pre-launch A/A tests under-stated launch-week
    noise; in-flight A/A tests among control regions fixed it (92-98% coverage over 40 simulated worlds). A rival launch
    in two control regions is flagged in one. The vendor tracker shows the level of awareness but cannot attribute it.
 4. **One question, many answers.** The table above, the gaps between instruments explained, a bridge from platform
@@ -81,7 +86,7 @@ written by the same code (`src/robustness.py`).
 - **Six-week geo reads understate a launch.** The same withheld spend returns 1.92 in the window, 2.62 with cooldown and
   3.81 by week 104.
 
-Every problem the checks caught is in [`docs/ai_workflow_log.md`](docs/ai_workflow_log.md) (20 entries).
+Every problem the checks caught is in [`docs/ai_workflow_log.md`](docs/ai_workflow_log.md) (21 entries).
 
 ## How the methods map to platform tools
 
@@ -117,6 +122,7 @@ python src/signal_loss.py          # conversion lift at lower pixel match rates
 python src/robustness.py           # same pipeline on the first world (about 5 minutes)
 python src/validation.py
 python src/build_page.py           # site/index.html
+python src/build_summary.py        # site/summary.html + one-page PDF (needs Edge or Chrome)
 ```
 
 Python 3.12, numpy, pandas, scipy, statsmodels, PyMC. Set `PYTHONUTF8=1` on Windows.

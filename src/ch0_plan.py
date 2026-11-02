@@ -38,7 +38,8 @@ def main():
     else:
         bl_min = "pending (chapter 1 design)"
     cl_min = cl["plan_min"] if cl else "pending (chapter 2 design)"
-    geo_min = geo["plan_min"] if geo else "pending (chapter 3 design)"
+    design = load("ch3_design.json")
+    geo_min = design["plan_min"] if design else "pending (chapter 3 design)"
     tracker_min = geo["tracker_min"] if geo and "tracker_min" in geo else "pending (chapter 3 design)"
 
     rows = [

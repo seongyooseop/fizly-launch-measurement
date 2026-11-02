@@ -134,7 +134,7 @@ def main():
          "answer": f"From {100 * tr[1]['estimate']:.0f}% at launch to {100 * tr[-1]['estimate']:.0f}% by week 103",
          "confidence": "Level only: a monthly wave of 1,000 cannot say what caused a change under 5.7pp"},
     ]
-    sustain_action_en = {"down": "Step down 30% in a geo test", "edge": "Hold; step-down test (-30% in matched regions)",
+    sustain_action_en = {"down": "Step down 30% in a geo test", "edge": "Hold; step-down test on short video (-30% in matched regions, Q1)",
                          "up": "Add 30% in matched regions first"}[sustain_call]
     rec_en = [
         {"line": "Launch flight (next launch)", "action": "Same approach; judge it on half-year sales against break-even, not on a six-week read",
@@ -151,8 +151,9 @@ def main():
          "why": f"Model interval {cal['social']['ci90'][0]:.2f}-{cal['social']['ci90'][1]:.2f}" + ("" if cut["social"] else " reaches past break-even: unclear")},
     ]
     agenda_en = [
-        {"quarter": "Q1 2027", "question": "How much sustain video does FIZLY Zero need?",
-         "study": "Geo test: sustain video -30% in matched regions, stores + online, with a cooldown read", "decides": "Sustain weight; the biggest line"},
+        {"quarter": "Q1 2027", "question": "How much sustain short video does Zero need, and what does short video alone return over months?",
+         "study": "Geo test on short video only (online video unchanged): -30% in matched regions for 12 weeks, stores + online, "
+                  "read at week 12 and again at week 20 to catch carry-over", "decides": "Sustain weight, and the split the model cannot make"},
         {"quarter": "Q2 2027", "question": "Does retail media add sales or collect buyers who would come anyway?",
          "study": "Audience holdout on the marketplace (or regions)", "decides": "Retail media budget"},
         {"quarter": "Q3 2027", "question": "How much of search is protecting the brand name vs new demand?",
@@ -164,7 +165,8 @@ def main():
     not_sure_en = [
         f"The contribution margins: {100 * MARGIN:.0f}% of shelf sales and {100 * ONLINE_MARGIN:.0f}% online are our assumptions; "
         f"at 25-40% on shelf sales, break-even runs from 4.0 to 2.5.",
-        "How the video return splits between short video and online video: they build the same awareness and no test separated them.",
+        "How the video return splits between short video and online video: they build the same awareness and no test so far "
+        "separated them. The Q1 test moves short video alone for long enough to see carry-over.",
         f"The model's marginal return for sustain video ({sustain['median']:.1f}): in this lab the model runs high on it; the Q1 test measures it directly.",
         "Returns beyond week 104: the model assumes awareness keeps fading at the rate it learned.",
     ]
@@ -218,7 +220,7 @@ def main():
          "answer": f"출시 시점 {100 * tr[1]['estimate']:.0f}% → 103주 {100 * tr[-1]['estimate']:.0f}%",
          "confidence": "수준만 보여줌. 웨이브당 1,000명으로는 5.7%p 미만의 변화 원인을 말할 수 없음"},
     ]
-    sustain_action_ko = {"down": "지역 실험으로 30% 축소", "edge": "유지, 매칭 지역 30% 축소 실험", "up": "매칭 지역에서 먼저 30% 증액"}[sustain_call]
+    sustain_action_ko = {"down": "지역 실험으로 30% 축소", "edge": "유지, Q1 숏폼 매칭 지역 30% 축소 실험", "up": "매칭 지역에서 먼저 30% 증액"}[sustain_call]
     rec_ko = [
         {"line": "출시 집행(다음 출시)", "action": "같은 방식. 6주 결과가 아니라 반년 매출을 손익분기와 비교해 판단",
          "why": f"반년 수익 {both['median']:.1f}원 vs 손익분기 {be:.1f}원, 6주 결과는 {gw['iroas']:.1f}원"},
@@ -234,14 +236,16 @@ def main():
          "why": f"모델 구간 {cal['social']['ci90'][0]:.2f}~{cal['social']['ci90'][1]:.2f}" + ("" if cut["social"] else ", 손익분기를 걸쳐 있어 판단 보류")},
     ]
     agenda_ko = [
-        {"quarter": "2027 Q1", "question": "제로에 유지 기간 영상이 얼마나 필요한가?", "study": "지역 실험: 매칭 지역 유지 영상 30% 축소, 매장+온라인, 쿨다운 판독", "decides": "유지 비중(가장 큰 항목)"},
+        {"quarter": "2027 Q1", "question": "유지 기간 숏폼 영상이 얼마나 필요하고, 숏폼만의 수개월 효과는 얼마인가?",
+         "study": "숏폼만 움직이는 지역 실험(온라인 영상은 그대로): 매칭 지역 30% 축소 12주, 매장+온라인, 12주 차와 이월 효과를 보는 20주 차에 두 번 판독",
+         "decides": "유지 비중, 모델이 가르지 못한 두 영상 채널 몫"},
         {"quarter": "2027 Q2", "question": "리테일 미디어는 매출을 늘리나, 어차피 살 사람을 모으나?", "study": "마켓플레이스 오디언스(또는 지역) 홀드아웃", "decides": "리테일 미디어 예산"},
         {"quarter": "2027 Q3", "question": "검색은 브랜드명을 지키는 몫과 새 수요 몫이 각각 얼마인가?", "study": "브랜드 키워드 중단 지역 실험", "decides": "브랜드·일반 키워드 배분"},
         {"quarter": "2027 Q4", "question": "모델이 여전히 맞나, 새 소재가 A를 이기나?", "study": "Q1~Q3 실험으로 MMM 재보정, 30% 홀드아웃 브랜드 리프트, 헤비 유저 보강 트래커", "decides": "2028 예산과 소재"},
     ]
     not_sure_ko = [
         f"공헌이익률(매장 판매가의 {100 * MARGIN:.0f}%, 온라인 {100 * ONLINE_MARGIN:.0f}%)은 가정입니다. 매장 기준 25~40%라면 손익분기는 4.0~2.5원입니다.",
-        "영상 효과가 숏폼과 온라인 영상 사이에 어떻게 나뉘는지는 모릅니다. 둘이 같은 인지도를 쌓고, 이를 가르는 실험이 없었습니다.",
+        "영상 효과가 숏폼과 온라인 영상 사이에 어떻게 나뉘는지는 아직 모릅니다. 둘이 같은 인지도를 쌓고, 지금까지 이를 가른 실험이 없었습니다. Q1 실험이 숏폼만 충분히 오래 움직여 이월 효과까지 봅니다.",
         f"유지 영상의 한계 수익({sustain['median']:.1f}원)은 모델이 높게 보는 경향이 있습니다. Q1 실험이 직접 측정합니다.",
         "104주 이후의 수익은 모델이 학습한 속도로 인지도가 줄어든다고 가정한 값입니다.",
     ]

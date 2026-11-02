@@ -11,7 +11,8 @@ sell-out panel plus online sales. Uses only the 78 weeks before launch.
   3. power by injecting a known loss into the go-dark group -> smallest
      detectable drop, then the smallest detectable return on the video budget
   4. two shares compared (30% vs 50% of regions dark): precision vs sales at risk
-     in the launch weeks
+     in the launch weeks, plus the platform-side option of a +50% heavy-up in the
+     same regions (reads the marginal return; nothing withheld)
 Writes outputs/ch3_design.json and data/geo_assignment.csv
 """
 from __future__ import annotations
@@ -36,6 +37,7 @@ LAUNCH_UPLIFT = 1.35           # plan: Zero adds ~35% to weekly sales in its fir
 PRIOR_IROAS = (0.5, 2.0)
 SHARES = [0.3, 0.5]
 CHOSEN = 0.3
+HEAVY_UP = 0.5                 # platform-side alternative: +50% video in the treated regions
 ASSIGN_SEED = 83
 
 
@@ -102,6 +104,17 @@ def main():
               f"sales at risk {PRIOR_IROAS[0] * withheld / 1e6:,.0f}-{PRIOR_IROAS[1] * withheld / 1e6:,.0f}M")
 
     ch = res[CHOSEN]
+    # The platform-side option: instead of switching video off, add 50% more in
+    # the same regions. The test reads the same sales gap (same MDE), but the
+    # money moved is the extra spend, and what it measures is the return on
+    # the next won (marginal), not the average. Nothing is withheld, so no
+    # launch sales are put at risk; the advertiser pays for the extra media.
+    extra = HEAVY_UP * PLANNED_VIDEO_M * 1e6 * ch["sales_share"] * TEST_WEEKS * 7
+    heavy_up = {"design": f"Heavy-up +{100 * HEAVY_UP:.0f}% in the same {len(ch['treat'])} regions", "measures": "marginal return",
+                "share": CHOSEN, "sales_share": ch["sales_share"], "extra_media_m": extra / 1e6,
+                "min_detectable_iroas": ch["mde_krw_m"] * 1e6 / extra, "sales_at_risk_m": [0.0, 0.0]}
+    print(f"heavy-up +{100 * HEAVY_UP:.0f}%: extra media {extra / 1e6:,.0f}M; min detectable marginal iROAS "
+          f"{heavy_up['min_detectable_iroas']:.2f}; no sales at risk")
     treat, ctrl = ch["treat"], ch["ctrl"]
     pre = slice(len(Y) - PRE_WEEKS, len(Y))
     yt, yc = Y[pre, treat].sum(1), Y[pre, ctrl].sum(1)
@@ -117,12 +130,14 @@ def main():
                 f"detects a {100 * ch['mde_share']:.1f}% drop in their sales, i.e. any total iROAS of "
                 f"{ch['min_detectable_iroas']:.2f} or more. Half the regions would detect "
                 f"{res[0.5]['min_detectable_iroas']:.2f} but put {res[0.5]['sales_at_risk_m'][1]:,.0f}M KRW of launch "
-                f"sales at risk (vs {ch['sales_at_risk_m'][1]:,.0f}M)")
+                f"sales at risk (vs {ch['sales_at_risk_m'][1]:,.0f}M). If the advertiser will not go dark, a "
+                f"+{100 * HEAVY_UP:.0f}% heavy-up in the same regions reads the return on extra spend instead "
+                f"(detectable {heavy_up['min_detectable_iroas']:.2f}), with no sales at risk")
     out = {"pre_weeks": PRE_WEEKS, "test_weeks": list(GEO_TEST_WEEKS), "chosen_share": CHOSEN,
            "planned_video_m_per_day": PLANNED_VIDEO_M, "launch_uplift": LAUNCH_UPLIFT, "prior_iroas": PRIOR_IROAS,
            "options": [{k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in r.items()
                         if k not in ("treat", "ctrl", "power")} | {"share": s} for s, r in res.items()],
-           "deltas": DELTAS.tolist(), "power_curve": ch["power"],
+           "heavy_up": heavy_up, "deltas": DELTAS.tolist(), "power_curve": ch["power"],
            "go_dark": [geos[i] for i in treat], "control": [geos[i] for i in ctrl],
            "prefit": prefit, "plan_min": plan_min}
     (ROOT / "outputs").mkdir(exist_ok=True)
