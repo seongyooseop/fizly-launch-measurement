@@ -1,0 +1,293 @@
+{
+ "bottom_line": [
+  "The launch video pays back. Short video and online video together returned about 4.5 won of shelf sales per won over the half year (90% interval 3.9-5.1), most of it in stores. At an assumed 30% contribution on shelf sales, break-even is 3.3, and even the low end of the interval clears it.",
+  "Sustain video after the flight sits near the edge: its last won returns about 3.7 (90%: 3.3-4.1) against a break-even of 3.3. Hold the weight and find the edge with a step-down test.",
+  "Do not judge video on online numbers. The platform credits 2.2 times the online orders video adds, and video's online return alone is 0.70: about 85% of what video earns is in stores and in the weeks after a flight, where no pixel looks.",
+  "Scale creative A. Opening on the product in the first second lifted ad recall +5.0pp more than the lifestyle opening (95% CI +2.3 to +7.8).",
+  "Search and retail media look best in platform reports and are the weakest lines. The model puts them at 0.7 and 0.8, with intervals topping out at 1.78 and 2.20, under the online break-even of 2.22 even at the top. Cut both 30% and confirm with holdout tests."
+ ],
+ "measured": [
+  {
+   "question": "Did the launch video build awareness among people it reached?",
+   "method": "Brand lift survey, 20% holdout",
+   "answer": "Ad recall +11.6pp, awareness +5.8pp (+4.9pp across everyone reached)",
+   "confidence": "High for recall and awareness; consideration and intent directional only"
+  },
+  {
+   "question": "How many online orders did video add?",
+   "method": "Conversion lift, 10% user holdout",
+   "answer": "4,524 orders in six weeks; online return 0.70 per won",
+   "confidence": "High (95% CI 0.54-0.85); confirmed by the geo test's online part"
+  },
+  {
+   "question": "With store sales, what did video return in the test weeks?",
+   "method": "Geo test, 12 regions dark for 6 weeks",
+   "answer": "1.68 in the window, 2.27 with a two-week cooldown",
+   "confidence": "Medium: wide interval; a short window understates a launch"
+  },
+  {
+   "question": "Over the half year, what does video return?",
+   "method": "MMM calibrated to the geo test",
+   "answer": "4.50 for both video channels together",
+   "confidence": "Medium-high on the total; low on the split between the two video channels"
+  },
+  {
+   "question": "Is awareness growing in the market?",
+   "method": "Independent tracker, monthly",
+   "answer": "From 9% at launch to 17% by week 103",
+   "confidence": "Level only: a monthly wave of 1,000 cannot say what caused a change under 5.7pp"
+  }
+ ],
+ "recommendation": [
+  {
+   "line": "Launch flight (next launch)",
+   "action": "Same approach; judge it on half-year sales against break-even, not on a six-week read",
+   "why": "Half-year return 4.5 vs break-even 3.3; the six-week read was 1.7"
+  },
+  {
+   "line": "Sustain video (short + online)",
+   "action": "Hold; step-down test (-30% in matched regions); keep alternating heavy and light blocks",
+   "why": "Marginal return about 3.7 vs break-even 3.3"
+  },
+  {
+   "line": "Online bidding targets",
+   "action": "Divide platform-reported ROAS by 2.2",
+   "why": "Conversion lift measured how much of the credit is real"
+  },
+  {
+   "line": "Creative",
+   "action": "Shift weight to product-first openings (A)",
+   "why": "Brand lift, pre-registered metric"
+  },
+  {
+   "line": "Retail media",
+   "action": "Cut 30%; holdout test in Q2",
+   "why": "Model 0.84 [0.29, 2.20] vs online break-even 2.22"
+  },
+  {
+   "line": "Search",
+   "action": "Cut generic terms 30%; brand-term test in Q3",
+   "why": "Model 0.73 [0.27, 1.78]; much of its credit is searches the video created"
+  },
+  {
+   "line": "Social",
+   "action": "Hold flat",
+   "why": "Model interval 0.37-3.21 reaches past break-even: unclear"
+  }
+ ],
+ "agenda": [
+  {
+   "quarter": "Q1 2027",
+   "question": "How much sustain video does FIZLY Zero need?",
+   "study": "Geo test: sustain video -30% in matched regions, stores + online, with a cooldown read",
+   "decides": "Sustain weight; the biggest line"
+  },
+  {
+   "quarter": "Q2 2027",
+   "question": "Does retail media add sales or collect buyers who would come anyway?",
+   "study": "Audience holdout on the marketplace (or regions)",
+   "decides": "Retail media budget"
+  },
+  {
+   "quarter": "Q3 2027",
+   "question": "How much of search is protecting the brand name vs new demand?",
+   "study": "Geo test pausing brand-term search",
+   "decides": "Search split between brand and generic terms"
+  },
+  {
+   "quarter": "Q4 2027",
+   "question": "Is the model still right, and does a new creative beat A?",
+   "study": "Recalibrate the MMM with Q1-Q3 tests; brand lift with a 30% holdout; tracker boost sample of heavy platform users",
+   "decides": "2028 budget and creative"
+  }
+ ],
+ "asks": [
+  "Region-level sell-out panel every Monday (the geo test cannot run on national totals).",
+  "Server-side purchase events, so more than 75% of online orders match: a better match rate narrows every online read.",
+  "Tell the agency about local competitor launches and retailer promotions during tests; that is the only reliable way to drop a contaminated region.",
+  "Agree the rules before each test (metrics, holdouts, read dates) and do not ask for early reads."
+ ],
+ "not_sure": [
+  "The contribution margins: 30% of shelf sales and 45% online are our assumptions; at 25-40% on shelf sales, break-even runs from 4.0 to 2.5.",
+  "How the video return splits between short video and online video: they build the same awareness and no test separated them.",
+  "The model's marginal return for sustain video (3.7): in this lab the model runs high on it; the Q1 test measures it directly.",
+  "Returns beyond week 104: the model assumes awareness keeps fading at the rate it learned."
+ ],
+ "ko": {
+  "bottom_line": [
+   "출시 영상은 이익으로 본전을 넘었습니다. 숏폼 영상과 온라인 영상을 합쳐 광고비 1원당 매장 판매가 기준 매출 약 4.5원을 반년 동안 만들었고(90% 구간 3.9~5.1), 대부분은 매장에서 나왔습니다. 공헌이익률을 판매가의 30%로 가정하면 손익분기는 3.3원이고, 구간의 아래쪽 끝도 이를 넘습니다.",
+   "출시 후 유지 기간 영상은 손익분기 근처에 있습니다. 마지막 1원이 약 3.7원(90%: 3.3~4.1)이고 손익분기는 3.3원입니다. 지금 비중을 유지하면서 줄이는 지역 실험으로 경계를 찾는 것을 권합니다.",
+   "영상을 온라인 숫자로 판단하지 마십시오. 플랫폼은 영상이 실제로 늘린 온라인 주문의 2.2배를 자기 몫으로 잡고, 영상의 온라인 수익만 보면 0.70원입니다. 영상이 버는 돈의 약 85%는 픽셀이 보지 못하는 매장과 집행이 끝난 뒤의 몇 주에서 나옵니다.",
+   "소재 A를 늘리십시오. 첫 1초에 제품을 보여준 소재가 라이프스타일로 시작한 소재보다 광고 회상을 +5.0%p 더 올렸습니다(95% 구간 +2.3~+7.8%p).",
+   "검색과 리테일 미디어는 플랫폼 보고에서는 가장 좋아 보이지만 실제로는 가장 약합니다. 모델 추정은 각각 0.7원, 0.8원이고 구간 위쪽 끝도 1.78원, 2.20원으로 온라인 손익분기 2.22원보다 낮습니다. 둘 다 30% 줄이고 홀드아웃 테스트로 확인하십시오."
+  ],
+  "measured": [
+   {
+    "question": "출시 영상이 도달한 사람들의 인지도를 올렸나?",
+    "method": "브랜드 리프트 설문, 20% 홀드아웃",
+    "answer": "광고 회상 +11.6%p, 인지 +5.8%p(도달자 전체 기준 +4.9%p)",
+    "confidence": "회상·인지는 높음. 고려·구매 의향은 방향성만"
+   },
+   {
+    "question": "영상이 온라인 주문을 얼마나 늘렸나?",
+    "method": "전환 리프트, 사용자 10% 홀드아웃",
+    "answer": "6주간 4,524건, 온라인 수익 광고비 1원당 0.70원",
+    "confidence": "높음(95% 구간 0.54~0.85), 지역 실험의 온라인 결과와 일치"
+   },
+   {
+    "question": "매장까지 포함하면 실험 기간에 얼마를 벌었나?",
+    "method": "지역 실험, 12개 지역 6주 소등",
+    "answer": "실험 기간 1.68원, 2주 쿨다운 포함 2.27원",
+    "confidence": "중간. 구간이 넓고, 짧은 창은 출시 효과를 과소평가"
+   },
+   {
+    "question": "반년 동안 영상은 얼마를 벌었나?",
+    "method": "지역 실험으로 보정한 MMM",
+    "answer": "두 영상 채널 합산 4.50원",
+    "confidence": "합계는 중상, 두 채널 간 배분은 낮음"
+   },
+   {
+    "question": "시장 전체 인지도는 오르고 있나?",
+    "method": "독립 조사 회사의 월간 트래커",
+    "answer": "출시 시점 9% → 103주 17%",
+    "confidence": "수준만 보여줌. 웨이브당 1,000명으로는 5.7%p 미만의 변화 원인을 말할 수 없음"
+   }
+  ],
+  "recommendation": [
+   {
+    "line": "출시 집행(다음 출시)",
+    "action": "같은 방식. 6주 결과가 아니라 반년 매출을 손익분기와 비교해 판단",
+    "why": "반년 수익 4.5원 vs 손익분기 3.3원, 6주 결과는 1.7원"
+   },
+   {
+    "line": "유지 기간 영상(숏폼+온라인)",
+    "action": "유지, 매칭 지역 30% 축소 실험, 격주 강약 운영 유지",
+    "why": "한계 수익 약 3.7원 vs 손익분기 3.3원"
+   },
+   {
+    "line": "온라인 입찰 목표",
+    "action": "플랫폼 보고 ROAS를 2.2로 나눠 사용",
+    "why": "전환 리프트로 실제 몫을 측정"
+   },
+   {
+    "line": "소재",
+    "action": "제품을 먼저 보여주는 소재(A) 비중 확대",
+    "why": "사전에 정한 지표의 브랜드 리프트 결과"
+   },
+   {
+    "line": "리테일 미디어",
+    "action": "30% 축소, Q2 홀드아웃 테스트",
+    "why": "모델 0.84 [0.29, 2.20] vs 온라인 손익분기 2.22"
+   },
+   {
+    "line": "검색",
+    "action": "일반 키워드 30% 축소, Q3 브랜드 키워드 테스트",
+    "why": "모델 0.73 [0.27, 1.78], 성과의 상당 부분이 영상이 만든 검색"
+   },
+   {
+    "line": "소셜",
+    "action": "유지",
+    "why": "모델 구간 0.37~3.21, 손익분기를 걸쳐 있어 판단 보류"
+   }
+  ],
+  "agenda": [
+   {
+    "quarter": "2027 Q1",
+    "question": "제로에 유지 기간 영상이 얼마나 필요한가?",
+    "study": "지역 실험: 매칭 지역 유지 영상 30% 축소, 매장+온라인, 쿨다운 판독",
+    "decides": "유지 비중(가장 큰 항목)"
+   },
+   {
+    "quarter": "2027 Q2",
+    "question": "리테일 미디어는 매출을 늘리나, 어차피 살 사람을 모으나?",
+    "study": "마켓플레이스 오디언스(또는 지역) 홀드아웃",
+    "decides": "리테일 미디어 예산"
+   },
+   {
+    "quarter": "2027 Q3",
+    "question": "검색은 브랜드명을 지키는 몫과 새 수요 몫이 각각 얼마인가?",
+    "study": "브랜드 키워드 중단 지역 실험",
+    "decides": "브랜드·일반 키워드 배분"
+   },
+   {
+    "quarter": "2027 Q4",
+    "question": "모델이 여전히 맞나, 새 소재가 A를 이기나?",
+    "study": "Q1~Q3 실험으로 MMM 재보정, 30% 홀드아웃 브랜드 리프트, 헤비 유저 보강 트래커",
+    "decides": "2028 예산과 소재"
+   }
+  ],
+  "asks": [
+   "매주 월요일 지역 단위 셀아웃 패널 데이터 공유(전국 합계로는 지역 실험을 할 수 없습니다).",
+   "서버 측 구매 이벤트 연동으로 온라인 주문 매칭률을 75% 이상으로: 매칭률이 오르면 모든 온라인 측정이 정밀해집니다.",
+   "실험 기간 중 지역 경쟁사 출시나 유통사 프로모션을 대행사에 알려 주십시오. 오염된 지역을 빼는 유일하게 믿을 만한 방법입니다.",
+   "실험마다 규칙(지표, 홀드아웃, 판독일)을 미리 합의하고 중간 판독을 요청하지 않기."
+  ],
+  "not_sure": [
+   "공헌이익률(매장 판매가의 30%, 온라인 45%)은 가정입니다. 매장 기준 25~40%라면 손익분기는 4.0~2.5원입니다.",
+   "영상 효과가 숏폼과 온라인 영상 사이에 어떻게 나뉘는지는 모릅니다. 둘이 같은 인지도를 쌓고, 이를 가르는 실험이 없었습니다.",
+   "유지 영상의 한계 수익(3.7원)은 모델이 높게 보는 경향이 있습니다. Q1 실험이 직접 측정합니다.",
+   "104주 이후의 수익은 모델이 학습한 속도로 인지도가 줄어든다고 가정한 값입니다."
+  ]
+ },
+ "playbook": {
+  "title": "Launch measurement playbook (reusable for the next launch)",
+  "steps": [
+   {
+    "when": "4 weeks before launch",
+    "what": "One-page plan: questions, KPIs, studies, read dates, success thresholds (chapter 0)"
+   },
+   {
+    "when": "2 weeks before",
+    "what": "Designs from history: brand lift holdout by answers needed, conversion lift holdout by detectable lift, geo regions by detectable return and sales at risk"
+   },
+   {
+    "when": "Weeks 1-4",
+    "what": "Brand lift on recall and awareness; creative compared only on those"
+   },
+   {
+    "when": "Weeks 5-10",
+    "what": "Conversion lift and geo test in the same flight (holdout users in campaign regions, video off in 12 regions); cooldown read two weeks later"
+   },
+   {
+    "when": "Week 12",
+    "what": "Readout: one question per decision, with the number that answers it (chapter 4)"
+   },
+   {
+    "when": "Every quarter",
+    "what": "Recalibrate the model with the newest experiment; one new test per quarter"
+   }
+  ],
+  "cost": {
+   "geo_sales_given_up_m": 81.09044860912492,
+   "geo_video_withheld_m": 48.26319414248084,
+   "conversion_holdout_online_sales_m": 8.04340120595463
+  },
+  "value_lab_check": {
+   "spend_saved_m": 100.6767930785953,
+   "sales_lost_m": 300.0810457727184,
+   "true_return": 2.9806377080212947,
+   "contribution_lost_m": 90.02431373181552
+  },
+  "reusable": [
+   "Chapter 0 plan template",
+   "Design scripts (holdout and region sizing from the advertiser's own history)",
+   "In-flight A/A check for geo tests",
+   "Readout table: question, number, what it does not count",
+   "Program view: which study each advertiser tier can read"
+  ]
+ },
+ "platform_correction": 2.1666898255247697,
+ "margin": 0.3,
+ "online_margin": 0.45,
+ "breakeven": 3.3333333333333335,
+ "breakeven_online": 2.2222222222222223,
+ "sustain_marginal": {
+  "median": 3.7159801931057945,
+  "ci90": [
+   3.2698030632620023,
+   4.1264206329229225
+  ]
+ },
+ "sustain_call": "edge",
+ "video_pays": true
+}

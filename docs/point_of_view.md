@@ -1,0 +1,15 @@
+# Store-led brands are judged on the quarter of sales a pixel can see
+
+*From a simulated case; FIZLY is a fictional brand.*
+
+In a simulated drink launch, short-form video returned 0.70 won per won if you counted online orders and 1.68 if you added store sales over six weeks; over half a year, with online video alongside, the video campaign returned 4.5. Break-even was 3.3. Judged online, the campaign looks like a loss; judged properly, it paid back.
+
+**1. Count where the sales are.** For food, drink and household brands most sales happen in stores. A conversion lift is the right tool for online bidding and the wrong one for payback. A geo test read from the retailer's sell-out panel is the only experiment that sees stores.
+
+**2. Read launches twice.** Awareness built in a flight keeps selling after it. The geo read rose from 1.68 to 2.27 two weeks after video returned. Plan the second read before launch, and let a model calibrated to it carry the rest.
+
+**3. Correct the report, don't ignore it.** The platform credited 2.2 times the online orders the ads added. That ratio, measured once, turns a reported ROAS into a usable bidding target for months.
+
+**4. Calibrate the model the way the test was run.** A geo test switches video off in part of the market. A national model has to score it as that region going to zero, not as extra money at the margin; otherwise calibration inflates the very number it is meant to fix.
+
+None of this needs a new attribution model. It needs a plan agreed before launch, three experiments sized from the advertiser's own history, and the discipline to give each decision the number that answers it.

@@ -1,0 +1,204 @@
+{
+ "rows": [
+  {
+   "chapter": "1",
+   "claim": "Ad recall lift among respondents",
+   "estimate": 11.645308225431819,
+   "lo": 9.197234204785886,
+   "hi": 14.093382246077754,
+   "interval": "95%",
+   "truth": 12.80272015165762,
+   "inside": true,
+   "naive_label": "Saw vs never reached",
+   "naive": 15.378437599611134,
+   "unit": "pp"
+  },
+  {
+   "chapter": "1",
+   "claim": "Awareness lift, everyone reached (weighted)",
+   "estimate": 4.898614463818587,
+   "lo": 0.8701323342148639,
+   "hi": 8.927096593422311,
+   "interval": "95%",
+   "truth": 4.102937929854005,
+   "inside": true,
+   "naive_label": "Raw respondents' lift",
+   "naive": 5.7832868118903065,
+   "unit": "pp"
+  },
+  {
+   "chapter": "1",
+   "claim": "Creative A minus B, ad recall",
+   "estimate": 5.027506613945948,
+   "lo": 2.257249875237129,
+   "hi": 7.797763352654767,
+   "interval": "95%",
+   "truth": 5.140485832789128,
+   "inside": true,
+   "naive_label": null,
+   "naive": null,
+   "unit": "pp"
+  },
+  {
+   "chapter": "2",
+   "claim": "Online iROAS of video (conversion lift)",
+   "estimate": 0.6953570257731801,
+   "lo": 0.5445802285883425,
+   "hi": 0.8461338229580179,
+   "interval": "95%",
+   "truth": 0.728639867836326,
+   "inside": true,
+   "naive_label": "Platform-reported ROAS",
+   "naive": 1.5066229928499144,
+   "unit": ""
+  },
+  {
+   "chapter": "3",
+   "claim": "Total iROAS in the test weeks (geo test)",
+   "estimate": 1.680171610062373,
+   "lo": 1.3194575309330334,
+   "hi": 2.0408856891917124,
+   "interval": "95%",
+   "truth": 1.9197439699515748,
+   "inside": true,
+   "naive_label": "Online only (conversion lift)",
+   "naive": 0.6953570257731801,
+   "unit": ""
+  },
+  {
+   "chapter": "3",
+   "claim": "Total iROAS with a two-week cooldown",
+   "estimate": 2.266942506451038,
+   "lo": 1.8181257049157067,
+   "hi": 2.7157593079863687,
+   "interval": "95%",
+   "truth": 2.624051994738583,
+   "inside": true,
+   "naive_label": "Window read only",
+   "naive": 1.680171610062373,
+   "unit": ""
+  },
+  {
+   "chapter": "4",
+   "claim": "Both video channels, half-year return (calibrated MMM)",
+   "estimate": 4.504273110749366,
+   "lo": 3.9305382405764275,
+   "hi": 5.115052578155802,
+   "interval": "90%",
+   "truth": 4.140217680038594,
+   "inside": true,
+   "naive_label": "Uncalibrated MMM",
+   "naive": 6.275806579867855,
+   "unit": ""
+  },
+  {
+   "chapter": "4",
+   "claim": "Short video alone, half-year return (calibrated MMM)",
+   "estimate": 5.965876046023688,
+   "lo": 5.190870189776537,
+   "hi": 6.772152203089606,
+   "interval": "90%",
+   "truth": 4.475175916104748,
+   "inside": false,
+   "naive_label": "Uncalibrated MMM",
+   "naive": 8.382600378989554,
+   "unit": ""
+  },
+  {
+   "chapter": "4",
+   "claim": "Search, half-year return (calibrated MMM)",
+   "estimate": 0.7302622725912629,
+   "lo": 0.2728453759439485,
+   "hi": 1.7782398185077466,
+   "interval": "90%",
+   "truth": 1.0236338112387697,
+   "inside": true,
+   "naive_label": "Platform-reported ROAS",
+   "naive": 1.5017755766482155,
+   "unit": ""
+  },
+  {
+   "chapter": "4",
+   "claim": "Retail media, half-year return (calibrated MMM)",
+   "estimate": 0.838817416252063,
+   "lo": 0.2902875288830119,
+   "hi": 2.198595440716383,
+   "interval": "90%",
+   "truth": 0.7340482012783696,
+   "inside": true,
+   "naive_label": "Platform-reported ROAS",
+   "naive": 1.6628386084741413,
+   "unit": ""
+  },
+  {
+   "chapter": "5",
+   "claim": "Marginal return of sustain video (calibrated MMM)",
+   "estimate": 3.7159801931057945,
+   "lo": 3.2698030632620023,
+   "hi": 4.1264206329229225,
+   "interval": "90%",
+   "truth": 2.9806377080212947,
+   "inside": false,
+   "naive_label": null,
+   "naive": null,
+   "unit": ""
+  },
+  {
+   "chapter": "4",
+   "claim": "Market awareness moved by ads, from brand lift x reach",
+   "estimate": 1.7731384144965106,
+   "lo": null,
+   "hi": null,
+   "interval": "95%",
+   "truth": 1.1476817684160214,
+   "inside": null,
+   "naive_label": "Tracker change, weeks 79-83",
+   "naive": 3.0,
+   "unit": "pp"
+  }
+ ],
+ "repeated_runs": [
+  {
+   "chapter": "1",
+   "study": "Brand lift, ad recall",
+   "runs": 40,
+   "bias": -0.12063589360701084,
+   "coverage": 0.925,
+   "unit": "pp"
+  },
+  {
+   "chapter": "1",
+   "study": "Brand lift, awareness",
+   "runs": 40,
+   "bias": -0.24904597166248116,
+   "coverage": 0.95,
+   "unit": "pp"
+  },
+  {
+   "chapter": "1",
+   "study": "Brand lift, purchase intent",
+   "runs": 40,
+   "bias": 0.06706362362021157,
+   "coverage": 0.925,
+   "unit": "pp"
+  },
+  {
+   "chapter": "2",
+   "study": "Conversion lift, online iROAS",
+   "runs": 40,
+   "bias": 0.006961210833241141,
+   "coverage": 1.0,
+   "unit": ""
+  },
+  {
+   "chapter": "3",
+   "study": "Geo test, total iROAS (flagged region dropped)",
+   "runs": 40,
+   "bias": -0.09578448342900325,
+   "coverage": 0.925,
+   "unit": ""
+  }
+ ],
+ "inside": 9,
+ "graded": 11
+}

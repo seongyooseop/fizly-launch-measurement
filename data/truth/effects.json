@@ -1,0 +1,231 @@
+{
+ "rival_regions": [
+  "R10",
+  "R39"
+ ],
+ "geo_test": {
+  "withheld_video_krw": 48263194.14248084,
+  "test": {
+   "loss_offline": 56562483.34821868,
+   "loss_online": 36090492.577411085,
+   "iroas_total": 1.9197439699515748,
+   "iroas_online": 0.7477849988723508,
+   "iroas_offline": 1.171958971079224
+  },
+  "test_plus_cooldown": {
+   "loss_offline": 81837512.18253422,
+   "loss_online": 44807618.679498136,
+   "iroas_total": 2.624051994738583,
+   "iroas_online": 0.9284014345842655,
+   "iroas_offline": 1.6956505601543175
+  },
+  "to_week_104": {
+   "loss_offline": 124774761.42883682,
+   "loss_online": 59206355.79691744,
+   "iroas_total": 3.8120377338186926,
+   "iroas_online": 1.2267392751116015,
+   "iroas_offline": 2.585298458707091
+  },
+  "rival_loss_in_control": 15581230.618661582
+ },
+ "conversion_lift": {
+  "regions": [
+   "R02",
+   "R04",
+   "R05",
+   "R06",
+   "R07",
+   "R08",
+   "R10",
+   "R14",
+   "R15",
+   "R16",
+   "R17",
+   "R18",
+   "R20",
+   "R21",
+   "R23",
+   "R24",
+   "R25",
+   "R26",
+   "R27",
+   "R28",
+   "R29",
+   "R30",
+   "R32",
+   "R33",
+   "R36",
+   "R37",
+   "R38",
+   "R39"
+  ],
+  "video_spend_krw": 115672969.53692275,
+  "online_incremental_krw": 84237271.65589905,
+  "offline_incremental_krw": 137735976.00459194,
+  "base_orders_platform": 20151.13587909946,
+  "incremental_orders": 5264.829478493691,
+  "attributed_orders": 12354.785972199456,
+  "reported_rev_krw": 197676575.55519128,
+  "iroas_online": 0.7282364410037088,
+  "iroas_total": 1.9189725010875358,
+  "reported_roas": 1.7089262629511126
+ },
+ "channel_roi": {
+  "short_video": {
+   "history": {
+    "spend": 360587326.20766723,
+    "incr_offline": 148436326.46063232,
+    "incr_online": 261877492.94274902,
+    "roi_total": 1.1379041624082926,
+    "roi_online": 0.7262526270596936,
+    "reported_roas": 1.6779206366838284
+   },
+   "post_launch": {
+    "spend": 488492194.9585121,
+    "incr_offline": 1493838972.8600044,
+    "incr_online": 692249533.223474,
+    "roi_total": 4.475175916104748,
+    "roi_online": 1.4171148287891624,
+    "reported_roas": 1.7998908999703724
+   },
+   "all": {
+    "spend": 849079521.1661794,
+    "incr_offline": 1642275299.320633,
+    "incr_online": 954127026.1662235,
+    "roi_total": 3.0579024234629917,
+    "roi_online": 1.1237192776193274,
+    "reported_roas": 1.7480925347772818
+   }
+  },
+  "online_video": {
+   "history": {
+    "spend": 433099740.423949,
+    "incr_offline": 0.0,
+    "incr_online": 0.0,
+    "roi_total": 0.0,
+    "roi_online": 0.0,
+    "reported_roas": 0.0
+   },
+   "post_launch": {
+    "spend": 177195142.0573715,
+    "incr_offline": 233617107.30525208,
+    "incr_online": 76975250.60086775,
+    "roi_total": 1.7528265972752093,
+    "roi_online": 0.434409486101741,
+    "reported_roas": 0.29147324807460456
+   },
+   "all": {
+    "spend": 610294882.4813204,
+    "incr_offline": 233617107.30525208,
+    "incr_online": 76975250.60086632,
+    "roi_total": 0.508921779981704,
+    "roi_online": 0.1261279634000902,
+    "reported_roas": 0.08462735815269407
+   }
+  },
+  "social": {
+   "history": {
+    "spend": 267690702.70582736,
+    "incr_offline": 0.0,
+    "incr_online": 270680652.9926615,
+    "roi_total": 1.0111694214876035,
+    "roi_online": 1.0111694214876035,
+    "reported_roas": 1.1122863636363636
+   },
+   "post_launch": {
+    "spend": 154762389.57128844,
+    "incr_offline": 0.0,
+    "incr_online": 137545891.07990885,
+    "roi_total": 0.8887552813117484,
+    "roi_online": 0.8887552813117484,
+    "reported_roas": 0.9776308094429217
+   },
+   "all": {
+    "spend": 422453092.27711576,
+    "incr_offline": 0.0,
+    "incr_online": 408226544.0725689,
+    "roi_total": 0.9663239577017589,
+    "roi_online": 0.9663239577017589,
+    "reported_roas": 1.062956353471938
+   }
+  },
+  "search": {
+   "history": {
+    "spend": 328119945.9362972,
+    "incr_offline": 0.0,
+    "incr_online": 347500482.108572,
+    "roi_total": 1.0590654009678444,
+    "roi_online": 1.0590654009678444,
+    "reported_roas": 1.3238317512098046
+   },
+   "post_launch": {
+    "spend": 167802647.36093664,
+    "incr_offline": 0.0,
+    "incr_online": 160142652.1476903,
+    "roi_total": 0.9543511658861376,
+    "roi_online": 0.9543511658861376,
+    "reported_roas": 1.8497255005666464
+   },
+   "all": {
+    "spend": 495922593.2972338,
+    "incr_offline": 0.0,
+    "incr_online": 507643134.2562618,
+    "roi_total": 1.0236338112387697,
+    "roi_online": 1.0236338112387697,
+    "reported_roas": 1.5017755766482155
+   }
+  },
+  "retail_media": {
+   "history": {
+    "spend": 319734536.5601126,
+    "incr_offline": 0.0,
+    "incr_online": 247056657.14213753,
+    "roi_total": 0.7726930590611657,
+    "roi_online": 0.7726930590611657,
+    "reported_roas": 1.5272113221060262
+   },
+   "post_launch": {
+    "spend": 182176379.44379652,
+    "incr_offline": 0.0,
+    "incr_online": 121370147.95251083,
+    "roi_total": 0.6662232959237995,
+    "roi_online": 0.6662232959237995,
+    "reported_roas": 1.9008756563296987
+   },
+   "all": {
+    "spend": 501910916.0039092,
+    "incr_offline": 0.0,
+    "incr_online": 368426805.09464836,
+    "roi_total": 0.7340482012783696,
+    "roi_online": 0.7340482012783696,
+    "reported_roas": 1.6628386084741413
+   }
+  },
+  "video_combined": {
+   "history": {
+    "spend": 793687066.6316162,
+    "incr_offline": 148436326.46063232,
+    "incr_online": 261877492.94274902,
+    "roi_total": 0.5169717847926396,
+    "roi_online": 0.3299505610619928,
+    "reported_roas": 0.7623116734637577
+   },
+   "post_launch": {
+    "spend": 665687337.0158837,
+    "incr_offline": 1922773527.3528862,
+    "incr_online": 833316954.7380853,
+    "roi_total": 4.140217680038594,
+    "roi_online": 1.2518143404584574,
+    "reported_roas": 1.3983746546596405
+   },
+   "all": {
+    "spend": 1459374403.6474998,
+    "incr_offline": 2071209853.8135147,
+    "incr_online": 1095194447.6808338,
+    "roi_total": 2.1696997655847388,
+    "roi_online": 0.7504547461868252,
+    "reported_roas": 1.052449057721283
+   }
+  }
+ }
+}

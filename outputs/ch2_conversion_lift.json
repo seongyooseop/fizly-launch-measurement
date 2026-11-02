@@ -1,0 +1,64 @@
+{
+ "holdout": 0.1,
+ "spend_test_m": 104.1056725832305,
+ "aov": 16000,
+ "pixel_match": 0.75,
+ "design": [
+  {
+   "holdout": 0.05,
+   "mde_rel": 0.10456266293550993,
+   "min_detectable_iroas_online": 0.29145013734900144,
+   "online_sales_given_up_m": [
+    0.8060454351639786,
+    4.83627261098387
+   ]
+  },
+  {
+   "holdout": 0.1,
+   "mde_rel": 0.07596301350056563,
+   "min_detectable_iroas_online": 0.21173361596422446,
+   "online_sales_given_up_m": [
+    1.6120908703279573,
+    9.67254522196774
+   ]
+  },
+  {
+   "holdout": 0.2,
+   "mde_rel": 0.05697226012542422,
+   "min_detectable_iroas_online": 0.15880021197316832,
+   "online_sales_given_up_m": [
+    3.2241817406559146,
+    19.34509044393548
+   ]
+  }
+ ],
+ "readout": {
+  "n_test": 1143494,
+  "n_holdout": 127067,
+  "orders_test": 17135,
+  "orders_holdout": 1527,
+  "lift_rel": 0.24693541005937839,
+  "lift_rel_lo": 0.1933915054747105,
+  "lift_rel_hi": 0.30047931464404626,
+  "incr_orders": 4524.4131783494795,
+  "incr_lo": 3543.368185794926,
+  "incr_hi": 5505.458170904033,
+  "p": 0.0,
+  "iroas_online": 0.6953570257731801,
+  "iroas_lo": 0.5445802285883425,
+  "iroas_hi": 0.8461338229580179,
+  "attributed_orders": 9803.0,
+  "attributed_roas": 1.5066229928499144,
+  "attributed_over_incremental": 2.1666898255247693,
+  "truth_incr_orders": 4740.971469503555,
+  "truth_iroas_online": 0.728639867836326
+ },
+ "plan_min": "10% user holdout in the campaign regions; detects a 7.6% lift in online orders (online iROAS 0.21). Needs the brand's purchase events shared through the pixel (about 75% of orders match a user)",
+ "montecarlo": {
+  "runs": 40,
+  "bias": 0.006961210833241141,
+  "coverage": 1.0,
+  "attributed_over_incremental_mean": 2.084396164416036,
+  "significant": 1.0
+ }
+}

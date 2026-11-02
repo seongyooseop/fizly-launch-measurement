@@ -1,0 +1,176 @@
+{
+ "tiers": [
+  {
+   "budget_m": 30,
+   "sales_month_m": 505.4996890362977,
+   "answers_test": 1951.5747432062412,
+   "answers_holdout": 485.93556245970336,
+   "awareness_mde_pp": 5.6813968051870445,
+   "recall_mde_pp": 4.261047603890283,
+   "geo_min_iroas": 0.9581685821200306,
+   "by_offline": [
+    {
+     "offline": 0.25,
+     "cls_mde_rel": 0.07708113198187887,
+     "studies": [
+      "Brand lift (ad recall only)",
+      "Conversion lift"
+     ],
+     "payback_answer": "Conversion lift"
+    },
+    {
+     "offline": 0.5,
+     "cls_mde_rel": 0.09440472107586434,
+     "studies": [
+      "Brand lift (ad recall only)",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    },
+    {
+     "offline": 0.75,
+     "cls_mde_rel": 0.13350843689753653,
+     "studies": [
+      "Brand lift (ad recall only)",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    }
+   ]
+  },
+  {
+   "budget_m": 60,
+   "sales_month_m": 1010.9993780725954,
+   "answers_test": 2757.1987202773057,
+   "answers_holdout": 685.6261972400318,
+   "awareness_mde_pp": 4.782374275449337,
+   "recall_mde_pp": 3.5867807065870028,
+   "geo_min_iroas": 0.6775275019369731,
+   "by_offline": [
+    {
+     "offline": 0.25,
+     "cls_mde_rel": 0.05450459112592181,
+     "studies": [
+      "Brand lift",
+      "Conversion lift"
+     ],
+     "payback_answer": "Conversion lift"
+    },
+    {
+     "offline": 0.5,
+     "cls_mde_rel": 0.06675421844876826,
+     "studies": [
+      "Brand lift",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    },
+    {
+     "offline": 0.75,
+     "cls_mde_rel": 0.09440472107586434,
+     "studies": [
+      "Brand lift",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    }
+   ]
+  },
+  {
+   "budget_m": 120,
+   "sales_month_m": 2021.9987561451908,
+   "answers_test": 3468.875527648186,
+   "answers_holdout": 866.4141058344092,
+   "awareness_mde_pp": 4.256138694710181,
+   "recall_mde_pp": 3.1921040210326357,
+   "geo_min_iroas": 0.4790842910600153,
+   "by_offline": [
+    {
+     "offline": 0.25,
+     "cls_mde_rel": 0.038540565990939434,
+     "studies": [
+      "Brand lift",
+      "Conversion lift"
+     ],
+     "payback_answer": "Conversion lift"
+    },
+    {
+     "offline": 0.5,
+     "cls_mde_rel": 0.04720236053793217,
+     "studies": [
+      "Brand lift",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    },
+    {
+     "offline": 0.75,
+     "cls_mde_rel": 0.06675421844876826,
+     "studies": [
+      "Brand lift",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    }
+   ]
+  },
+  {
+   "budget_m": 300,
+   "sales_month_m": 5054.996890362977,
+   "answers_test": 4036.0133901970466,
+   "answers_holdout": 1008.6910483720019,
+   "awareness_mde_pp": 3.944811988806321,
+   "recall_mde_pp": 2.9586089916047404,
+   "geo_min_iroas": 0.3029995101913384,
+   "by_offline": [
+    {
+     "offline": 0.25,
+     "cls_mde_rel": 0.02437519416867859,
+     "studies": [
+      "Brand lift",
+      "Conversion lift"
+     ],
+     "payback_answer": "Conversion lift"
+    },
+    {
+     "offline": 0.5,
+     "cls_mde_rel": 0.02985339404726328,
+     "studies": [
+      "Brand lift",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    },
+    {
+     "offline": 0.75,
+     "cls_mde_rel": 0.04221907474450795,
+     "studies": [
+      "Brand lift",
+      "Conversion lift",
+      "Geo test on sell-out"
+     ],
+     "payback_answer": "Geo test (stores + online)"
+    }
+   ]
+  }
+ ],
+ "offline": [
+  0.25,
+  0.5,
+  0.75
+ ],
+ "fizly_month_m": 113.54039726149036,
+ "assumptions": [
+  "Sales scale with video budget at FIZLY's ratio (17 won of sales per won of monthly video budget).",
+  "Regional noise as a share of sales grows as 1 / sqrt(sales) for smaller brands.",
+  "Readable: awareness detectable at 5pp or less; conversion lift detects a 15% lift; geo test detects a total return of 1.0.",
+  "A geo test needs region-level store data, so it is offered only where stores are half of sales or more."
+ ]
+}

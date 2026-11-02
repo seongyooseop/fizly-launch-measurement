@@ -1,0 +1,245 @@
+{
+ "video": [
+  {
+   "instrument": "Platform report (pixel, 7-day click / 1-day view)",
+   "counts": "Online orders by people who clicked or saw an ad",
+   "window": "weeks 83-88",
+   "value": 1.5066229928499144,
+   "ci": null,
+   "truth": 0.728639867836326,
+   "truth_label": "true online return",
+   "use": "Daily bidding and creative rotation, after a correction"
+  },
+  {
+   "instrument": "Conversion lift (user holdout)",
+   "counts": "Extra online orders vs people who never saw an ad",
+   "window": "weeks 83-88",
+   "value": 0.6953570257731801,
+   "ci": [
+    0.5445802285883425,
+    0.8461338229580179
+   ],
+   "truth": 0.728639867836326,
+   "truth_label": "true online return",
+   "use": "Online bidding targets; the correction for the platform report"
+  },
+  {
+   "instrument": "Geo test, online part",
+   "counts": "Online sales lost in regions where video went dark",
+   "window": "weeks 83-88",
+   "value": 0.6820951384429527,
+   "ci": [
+    0.5865715742293776,
+    0.7776187026565278
+   ],
+   "truth": 0.7477849988723508,
+   "truth_label": "true online return",
+   "use": "Cross-check on conversion lift (an independent method)"
+  },
+  {
+   "instrument": "Geo test, stores + online",
+   "counts": "All sales lost in the go-dark regions",
+   "window": "weeks 83-88",
+   "value": 1.680171610062373,
+   "ci": [
+    1.3194575309330334,
+    2.0408856891917124
+   ],
+   "truth": 1.9197439699515748,
+   "truth_label": "true total return in the window",
+   "use": "Short-term payback including stores"
+  },
+  {
+   "instrument": "Geo test with 2-week cooldown",
+   "counts": "As above, read two weeks after video came back",
+   "window": "weeks 83-90",
+   "value": 2.266942506451038,
+   "ci": [
+    1.8181257049157067,
+    2.7157593079863687
+   ],
+   "truth": 2.624051994738583,
+   "truth_label": "true return incl. cooldown",
+   "use": "Calibration target for the MMM"
+  },
+  {
+   "instrument": "MMM calibrated to the geo test",
+   "counts": "Average return of launch short video, carry-over included",
+   "window": "weeks 79-104",
+   "value": 5.965876046023688,
+   "ci": [
+    5.190870189776537,
+    6.772152203089606
+   ],
+   "truth": 4.475175916104748,
+   "truth_label": "true long-run return",
+   "use": "Not on its own: see the next row"
+  },
+  {
+   "instrument": "MMM calibrated, both video channels together",
+   "counts": "Short video + online video, which build the same awareness",
+   "window": "weeks 79-104",
+   "value": 4.504273110749366,
+   "ci": [
+    3.9305382405764275,
+    5.115052578155802
+   ],
+   "truth": 4.140217680038594,
+   "truth_label": "true long-run return of both",
+   "use": "Second-half video budget and the payback verdict"
+  }
+ ],
+ "gaps": [
+  {
+   "between": "Platform report and conversion lift",
+   "ratio": 2.1666898255247697,
+   "why": "View-through credit goes to anyone who bought online the day after seeing an ad; most of them would have bought anyway."
+  },
+  {
+   "between": "Conversion lift and the geo test's online part",
+   "ratio": 0.9809279451581274,
+   "why": "Two independent designs (people vs regions) agree on online. That agreement is what lets the geo test's store number be trusted."
+  },
+  {
+   "between": "Online and stores + online (geo test)",
+   "ratio": 2.463251114643291,
+   "why": "About three quarters of sales are in stores; no pixel sees them. Judged on online alone, video looks like it loses money."
+  },
+  {
+   "between": "Test window and the long run",
+   "ratio": 2.680841102047995,
+   "why": "Awareness built in the launch keeps selling after the flight. A six-week read sees only the start of it; the cooldown read sees a little more."
+  }
+ ],
+ "awareness": {
+  "brand_lift_weighted_pp": 4.898614463818587,
+  "brand_lift_ci_pp": [
+   0.8701323342148639,
+   8.927096593422311
+  ],
+  "reach_of_platform_users": 0.6032788888888889,
+  "platform_share_of_adults": 0.6,
+  "implied_population_lift_pp": 1.7731384144965106,
+  "tracker_change_79_83_pp": 3.0,
+  "truth_paid_lift_week83_pp": 1.1476817684160214,
+  "truth_organic_change_79_83_pp": 2.851896327974797
+ },
+ "channels": [
+  {
+   "channel": "short_video",
+   "reported_roas": 1.7998908999703724,
+   "model_roi": 5.965876046023688,
+   "model_ci90": [
+    5.190870189776537,
+    6.772152203089606
+   ],
+   "truth_roi": 4.475175916104748,
+   "reported_over_model": 0.3016976695602009
+  },
+  {
+   "channel": "online_video",
+   "reported_roas": 0.29147324807460456,
+   "model_roi": 0.4393739660144206,
+   "model_ci90": [
+    0.1762340992356816,
+    1.0000575288335727
+   ],
+   "truth_roi": 1.7528265972752093,
+   "reported_over_model": 0.6633830645874867
+  },
+  {
+   "channel": "video_combined",
+   "reported_roas": 1.3983746546596405,
+   "model_roi": 4.504273110749366,
+   "model_ci90": [
+    3.9305382405764275,
+    5.115052578155802
+   ],
+   "truth_roi": 4.140217680038594,
+   "reported_over_model": 0.31045512123197966
+  },
+  {
+   "channel": "social",
+   "reported_roas": 0.9776308094429217,
+   "model_roi": 1.1615928862099898,
+   "model_ci90": [
+    0.3703984653566048,
+    3.2095417321347117
+   ],
+   "truth_roi": 0.8887552813117484,
+   "reported_over_model": 0.8416294736727478
+  },
+  {
+   "channel": "search",
+   "reported_roas": 1.8497255005666464,
+   "model_roi": 0.7302622725912629,
+   "model_ci90": [
+    0.2728453759439485,
+    1.7782398185077466
+   ],
+   "truth_roi": 0.9543511658861376,
+   "reported_over_model": 2.532960512944315
+  },
+  {
+   "channel": "retail_media",
+   "reported_roas": 1.9008756563296987,
+   "model_roi": 0.838817416252063,
+   "model_ci90": [
+    0.2902875288830119,
+    2.198595440716383
+   ],
+   "truth_roi": 0.6662232959237995,
+   "reported_over_model": 2.2661375640279853
+  }
+ ],
+ "decisions": [
+  {
+   "decision": "Does the launch weight pay back?",
+   "use": "Calibrated MMM, anchored by the geo test with cooldown",
+   "not": "Platform ROAS (online only, over-credited) or a six-week window read (misses carry-over)"
+  },
+  {
+   "decision": "Online bid targets this month",
+   "use": "Platform ROAS divided by 2.2 (from conversion lift)",
+   "not": "Raw platform ROAS"
+  },
+  {
+   "decision": "Which creative to scale",
+   "use": "Brand lift on ad recall and awareness (pre-registered)",
+   "not": "Consideration or intent split by creative (too few answers)"
+  },
+  {
+   "decision": "Is the brand growing in the market?",
+   "use": "Vendor tracker trend",
+   "not": "Brand lift (only people reached)"
+  },
+  {
+   "decision": "Second-half split across channels",
+   "use": "Calibrated MMM, moving budget only where its interval is clear",
+   "not": "Platform-reported ROAS by channel (search and retail media look best and are not)"
+  }
+ ],
+ "vendor_brief": [
+  "Ask aided awareness with the same brand list and wording as the platform's in-feed poll. The vendor's longer list reads lower, so today the two cannot be set side by side without a bridge.",
+  "Add a boost sample of heavy platform users, or weight by time spent on the platform. The panel under-recruits them: by week 103 the panel frame reads 16.7% where the whole population is at 17.6%.",
+  "Time the waves to the plan's read dates (launch, end of brand lift, end of the geo test) and double the sample in launch months: 2,000 a wave detects a 4.1pp change between waves, 1,000 needs 5.7pp."
+ ],
+ "uncalibrated_video_zero": {
+  "median": 8.382600378989554,
+  "ci90": [
+   6.993464861977568,
+   9.967455864687622
+  ],
+  "truth": 4.475175916104748,
+  "truth_inside": false
+ },
+ "uncalibrated_video_combined": {
+  "median": 6.275806579867855,
+  "ci90": [
+   5.246670908891566,
+   7.476955938120584
+  ],
+  "truth": 4.140217680038594,
+  "truth_inside": false
+ }
+}
