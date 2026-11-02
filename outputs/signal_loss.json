@@ -1,0 +1,57 @@
+{
+ "rows": [
+  {
+   "match": 0.9,
+   "ci_width": 0.2746114034396648,
+   "bias": -0.012100153643151734,
+   "significant": 1.0,
+   "estimate_sd": 0.07927995477458218,
+   "min_detectable_online_iroas": 0.1932854627429028,
+   "mde_rel": 0.06934442671721545,
+   "platform_reported_roas": 1.8221280546937537,
+   "truth": 0.7281396756430725
+  },
+  {
+   "match": 0.75,
+   "ci_width": 0.30104549754679216,
+   "bias": -0.009047456317554303,
+   "significant": 1.0,
+   "estimate_sd": 0.07445560747269686,
+   "min_detectable_online_iroas": 0.21173361596422438,
+   "mde_rel": 0.07596301350056563,
+   "platform_reported_roas": 1.5196968881804354,
+   "truth": 0.7281396756430725
+  },
+  {
+   "match": 0.5,
+   "ci_width": 0.36912716834204345,
+   "bias": -0.044916280212661655,
+   "significant": 1.0,
+   "estimate_sd": 0.06401822598328269,
+   "min_detectable_online_iroas": 0.25931966025338027,
+   "mde_rel": 0.09303531120026783,
+   "platform_reported_roas": 1.0069563364364915,
+   "truth": 0.7281396756430725
+  },
+  {
+   "match": 0.3,
+   "ci_width": 0.47542765778012963,
+   "bias": -0.04129296386430995,
+   "significant": 1.0,
+   "estimate_sd": 0.09241721747944649,
+   "min_detectable_online_iroas": 0.3347802418351689,
+   "mde_rel": 0.12010807029595386,
+   "platform_reported_roas": 0.6040631450675613,
+   "truth": 0.7281396756430725
+  }
+ ],
+ "runs": 15,
+ "today": 0.75,
+ "geo_min_detectable_total_iroas": 0.49252394464736043,
+ "true_online_iroas": 0.7281396756430725,
+ "notes": [
+  "The study stays unbiased as matching falls: the holdout loses the same share of orders as the test group. It gets noisier.",
+  "The platform's credited ROAS falls with matching, because it can only credit orders it sees: a drop in reported ROAS after a privacy change is partly a measurement change, not a performance change.",
+  "A geo test reads regional sales and needs no user match; its detectable total return (0.49) is the same at any match rate."
+ ]
+}

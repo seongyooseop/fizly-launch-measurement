@@ -14,8 +14,8 @@
   {
    "priority": "P1",
    "gap": "Reported ROAS sits next to nothing that corrects it",
-   "evidence": "The platform credited 2.2 times the online orders video added; an advertiser bidding to reported ROAS over-buys online.",
-   "ask": "Show a calibrated ROAS beside reported ROAS: reported divided by the ratio from the advertiser's latest conversion lift, with its date and interval.",
+   "evidence": "The platform credited 2.2 times the online orders video added; an advertiser bidding to reported ROAS over-buys online. And if matching falls from 75% to 30%, reported ROAS drops from 1.52 to 0.60 while the true return stays at 0.73: a privacy change reads as a performance collapse.",
+   "ask": "Show a calibrated ROAS beside reported ROAS: reported divided by the ratio from the advertiser's latest conversion lift, with its date and interval, and re-estimate the ratio when the match rate moves.",
    "helps": "Every advertiser that has run one lift study"
   },
   {

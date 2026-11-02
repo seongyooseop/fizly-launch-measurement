@@ -1,0 +1,53 @@
+{
+ "first": {
+  "video_spend_post_launch_m": 1331.3746740317674,
+  "media_spend_post_launch_m": 2340.8575067838105,
+  "platform_over_incremental": 3.0746978593274643,
+  "conversion_lift_online": 0.3255548884927904,
+  "geo_window": 0.6971006355449461,
+  "geo_cooldown": 0.9002438454596317,
+  "video_both_model": 1.9290707252226875,
+  "video_both_ci90": [
+   1.6752988418434551,
+   2.2389759231606194
+  ],
+  "video_both_truth": 2.0081357042807935,
+  "video_both_inside": true,
+  "sustain_model": 1.5481450605124654,
+  "sustain_truth": 1.2231429494552515,
+  "breakeven": 3.3333333333333335,
+  "video_pays": false,
+  "sustain_call": "down",
+  "first_line": "Video drives sales but has not paid back yet: 1.9 won of shelf sales per won over the half year against a break-even of 3.3 at 30% contribution.",
+  "second_line": "Sustain video after the flight is past the point of profit: its last won returns about 1.5 (90%: 1.4-1.8) against 3.3. Step it down and measure it.",
+  "search_action": "Cut generic terms 30%; brand-term test in Q3",
+  "retail_action": "Cut 30%; holdout test in Q2",
+  "ad_to_sales": 0.1498875712842127
+ },
+ "final": {
+  "video_spend_post_launch_m": 665.6873370158837,
+  "media_spend_post_launch_m": 1170.4287533919053,
+  "platform_over_incremental": 2.1666898255247697,
+  "conversion_lift_online": 0.6953570257731801,
+  "geo_window": 1.680171610062373,
+  "geo_cooldown": 2.266942506451038,
+  "video_both_model": 4.504273110749366,
+  "video_both_ci90": [
+   3.9305382405764275,
+   5.115052578155802
+  ],
+  "video_both_truth": 4.140217680038594,
+  "video_both_inside": true,
+  "sustain_model": 3.7159801931057945,
+  "sustain_truth": 2.9806377080212947,
+  "breakeven": 3.3333333333333335,
+  "video_pays": true,
+  "sustain_call": "edge",
+  "first_line": "The launch video pays back. Short video and online video together returned about 4.5 won of shelf sales per won over the half year (90% interval 3.9-5.1), most of it in stores. At an assumed 30% contribution on shelf sales, break-even is 3.3, and even the low end of the interval clears it.",
+  "second_line": "Sustain video after the flight sits near the edge: its last won returns about 3.7 (90%: 3.3-4.1) against a break-even of 3.3. Hold the weight and find the edge with a step-down test.",
+  "search_action": "Cut generic terms 30%; brand-term test in Q3",
+  "retail_action": "Cut 30%; holdout test in Q2",
+  "ad_to_sales": 0.07550101142970067
+ },
+ "what_changed": "Media budget (15.0% of sales -> 7.6%) and how fast video builds awareness. No estimator, design rule or decision rule changed."
+}

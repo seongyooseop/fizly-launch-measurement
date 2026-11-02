@@ -33,7 +33,9 @@ the launch keeps selling after the flight. Sales here are shelf value: at an ass
 3.3, and the launch video clears it once stores and carry-over are counted. Search and retail media, which look best in
 platform reports (ROAS about 1.9), do not clear their break-even even at the top of their intervals.
 
-9 of 11 headline intervals contain the truth; the two misses are reported, not tuned away.
+9 of 11 headline intervals contain the truth; the two misses are reported, not tuned away. The unchanged pipeline was
+also run on the lab's first world (media at 15% of sales): there the readout says the launch video has not paid back,
+written by the same code (`src/robustness.py`).
 
 ## Chapters
 
@@ -46,7 +48,9 @@ platform reports (ROAS about 1.9), do not clear their break-even even at the top
    directional as planned. Respondents are heavy users, so answers are re-weighted by poll chance to describe everyone
    reached. Creative A (product in the first second) beats B on recall. 40 re-runs: intervals cover the truth 92-95%.
 2. **Conversion lift** (weeks 83-88). 10% user holdout in the campaign regions, pixel-matched orders. Online iROAS 0.70
-   against a platform-credited 1.51. 40 re-runs: bias +0.007, coverage 100%.
+   against a platform-credited 1.51. 40 re-runs: bias +0.007, coverage 100%. Signal loss: at match rates from 90% to
+   30% the study stays unbiased and gets noisier, while the platform's reported ROAS falls from 1.82 to 0.60 with the
+   true return unchanged.
 3. **Stores and tracker.** Geo test: video off in 12 of 40 regions (30% detects nearly the same return as 50% and puts
    half the launch sales at risk). TBR on weekly sell-out + online. Pre-launch A/A tests under-stated launch-week
    noise; in-flight A/A tests among control regions fixed it (92-98% coverage over 40 simulated worlds). A rival launch
@@ -77,7 +81,7 @@ platform reports (ROAS about 1.9), do not clear their break-even even at the top
 - **Six-week geo reads understate a launch.** The same withheld spend returns 1.92 in the window, 2.62 with cooldown and
   3.81 by week 104.
 
-Every problem the checks caught is in [`docs/ai_workflow_log.md`](docs/ai_workflow_log.md) (18 entries).
+Every problem the checks caught is in [`docs/ai_workflow_log.md`](docs/ai_workflow_log.md) (20 entries).
 
 ## How the methods map to platform tools
 
@@ -109,6 +113,8 @@ python src/program_eligibility.py  # program view for other advertisers
 python src/ch5_report.py           # readout, English and Korean
 python src/ch6_product_memo.py
 python src/point_of_view.py        # one-page point of view
+python src/signal_loss.py          # conversion lift at lower pixel match rates
+python src/robustness.py           # same pipeline on the first world (about 5 minutes)
 python src/validation.py
 python src/build_page.py           # site/index.html
 ```

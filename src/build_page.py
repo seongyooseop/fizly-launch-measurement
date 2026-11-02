@@ -26,6 +26,7 @@ def main():
             "ch3d": load("ch3_design.json"), "ch3": load("ch3_offline.json"), "compare": load("ch4_compare.json"),
             "report": load("ch5_report.json"), "memo": load("ch6_product_memo.json"), "validation": load("validation.json"),
             "program": load("program_eligibility.json"), "pov": load("point_of_view.json"),
+            "signal": load("signal_loss.json"), "robust": load("robustness.json"),
             "log": worklog()}
     # the per-person frequency and diagnostic detail is not needed on the page
     data["ch3"].pop("diagnostic", None)

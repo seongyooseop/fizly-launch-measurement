@@ -170,6 +170,9 @@ footer { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--gri
       <div class="panel"><h3>Orders in the test group, weeks 83-88</h3><div id="cls-bars"></div></div>
       <div class="panel"><h3>Design: holdout size</h3><div class="tbl" id="cls-design"></div></div>
     </div>
+    <div class="panel"><h3>When signals get thin: the same study at lower pixel match rates</h3>
+      <p class="note">Privacy changes cut the share of online orders a platform can match to a user. Same people, holdout and ads; only the match rate changes (15 runs each).</p>
+      <div class="tbl" id="cls-signal"></div><ul class="small" id="cls-signal-notes" style="margin:0;padding-left:18px;display:grid;gap:3px"></ul></div>
     <details class="guide"><summary>How to read this tab</summary><ul>
       <li>The study counts orders the brand's pixel can match to a user (about 75%) and scales the gap between groups to all orders.</li>
       <li>"Credited" orders use the platform's 7-day click / 1-day view rule.</li></ul></details>
@@ -215,6 +218,7 @@ footer { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--gri
   </section>
 
   <section class="view" id="view-checks" role="tabpanel" hidden>
+    <div class="panel"><h3>Same pipeline, two worlds: does the readout follow the data?</h3><p class="note" id="rob-note"></p><div class="tbl" id="rob-table"></div></div>
     <div class="panel"><h3 id="val-title"></h3><div class="tbl" id="val-table"></div></div>
     <div class="panel"><h3>Repeated runs: bias and interval coverage</h3><div class="tbl" id="rep-table"></div></div>
     <div class="panel"><h3>What the checks caught (work log)</h3><div class="log" id="log"></div></div>
@@ -354,7 +358,15 @@ function cls() {
   [["Credited by the platform", r.attributed_orders, "var(--naive)"], ["Incremental (study)", r.incr_orders, "var(--est)"], ["Incremental (truth)", r.truth_incr_orders, "var(--truth)"]].forEach(([lab, v, col], i) => {
     const y = 20 + i * 52; s("text", { x: 0, y: y + 18, class: "lab" }, g, lab); const b = s("rect", { x: 180, y, width: x(v) - 180, height: 28, rx: 3, fill: col, opacity: i === 2 ? 0.25 : 1 }, g);
     s("text", { x: x(v) + 6, y: y + 18, class: "strong" }, g, krw(v)); hover(b, `<b>${lab}</b>: ${krw(v)} orders`); if (i === 1) s("line", { x1: x(r.incr_lo), x2: x(r.incr_hi), y1: y + 14, y2: y + 14, stroke: "var(--surface)", "stroke-width": 2 }, g); });
+  signal();
   table($("cls-design"), ["Holdout", "Detectable lift", "Detectable online iROAS", "Online sales given up (KRW M)"], CL.design.map((d) => ({ hl: Math.abs(d.holdout - CL.holdout) < 1e-9, cells: [`${Math.round(100 * d.holdout)}%`, `${(100 * d.mde_rel).toFixed(1)}%`, f2(d.min_detectable_iroas_online), `${f1(d.online_sales_given_up_m[0])}-${f1(d.online_sales_given_up_m[1])}`] })), [1, 2, 3]);
+}
+
+function signal() {
+  const S = D.signal;
+  table($("cls-signal"), ["Match rate", "95% interval width (online iROAS)", "Smallest detectable online return", "Runs significant", "Average bias", "Platform-reported ROAS"],
+    S.rows.map((r) => ({ hl: Math.abs(r.match - S.today) < 1e-9, cells: [`${Math.round(100 * r.match)}%${Math.abs(r.match - S.today) < 1e-9 ? " (today)" : ""}`, f2(r.ci_width), f2(r.min_detectable_online_iroas), `${Math.round(100 * r.significant)}%`, (r.bias >= 0 ? "+" : "") + r.bias.toFixed(3), f2(r.platform_reported_roas)] })), [1, 2, 3, 4, 5]);
+  $("cls-signal-notes").innerHTML = S.notes.map((n) => `<li>${n}</li>`).join("") + `<li>True online return: ${f2(S.true_online_iroas)}.</li>`;
 }
 
 function geo() {
@@ -443,6 +455,20 @@ function memo() {
 }
 
 function checks() {
+  const RB = D.robust, a = RB.first, b = RB.final;
+  const yn = (v) => (v ? "yes" : "no");
+  $("rob-note").innerHTML = `What changed between the two (work log, entry 16): ${RB.what_changed} The same code wrote both readouts.`;
+  table($("rob-table"), ["", "First world", "Final world"], [
+    ["Media spend / sales (year 2)", `${(100 * a.ad_to_sales).toFixed(1)}%`, `${(100 * b.ad_to_sales).toFixed(1)}%`],
+    ["Platform credit vs real online orders", `x${f1(a.platform_over_incremental)}`, `x${f1(b.platform_over_incremental)}`],
+    ["Conversion lift, online iROAS", f2(a.conversion_lift_online), f2(b.conversion_lift_online)],
+    ["Geo test, window / with cooldown", `${f2(a.geo_window)} / ${f2(a.geo_cooldown)}`, `${f2(b.geo_window)} / ${f2(b.geo_cooldown)}`],
+    ["Both video channels, calibrated MMM (truth)", `${f2(a.video_both_model)} [${f2(a.video_both_ci90[0])}, ${f2(a.video_both_ci90[1])}] (${f2(a.video_both_truth)})`, `${f2(b.video_both_model)} [${f2(b.video_both_ci90[0])}, ${f2(b.video_both_ci90[1])}] (${f2(b.video_both_truth)})`],
+    ["Break-even (30% contribution)", f1(a.breakeven), f1(b.breakeven)],
+    ["Readout: launch video pays back?", `<b>${yn(a.video_pays)}</b>`, `<b>${yn(b.video_pays)}</b>`],
+    ["Readout: sustain video", `${a.sustain_call} (model ${f1(a.sustain_model)}, truth ${f1(a.sustain_truth)})`, `${b.sustain_call} (model ${f1(b.sustain_model)}, truth ${f1(b.sustain_truth)})`],
+    ["Readout: search / retail media", `${a.search_action} / ${a.retail_action}`, `${b.search_action} / ${b.retail_action}`],
+  ], []);
   $("val-title").textContent = `Headline numbers vs the truth: ${V.inside} of ${V.graded} intervals contain it`;
   table($("val-table"), ["Ch.", "Claim", "Estimate", "Interval", "Truth", "", "Without the study"], V.rows.map((r) => [r.chapter, r.claim, f2(r.estimate) + (r.unit || ""), r.lo == null ? "–" : `${r.interval}: ${f2(r.lo)} to ${f2(r.hi)}`, f2(r.truth), r.inside == null ? "" : r.inside ? '<span class="ok">inside</span>' : '<span class="miss">miss</span>', r.naive == null ? "" : `${r.naive_label}: ${f2(r.naive)}`]), [2, 4]);
   table($("rep-table"), ["Ch.", "Study", "Runs", "Average bias", "95% interval coverage"], V.repeated_runs.map((r) => [r.chapter, r.study, r.runs, (r.bias >= 0 ? "+" : "") + r.bias.toFixed(2) + (r.unit || ""), Math.round(100 * r.coverage) + "%"]), [2, 3, 4]);

@@ -26,6 +26,9 @@ def main():
     half = bl["budget"][0]
     mc = bl["montecarlo"]
     ratio = rep["platform_correction"]
+    sig = j("signal_loss.json")
+    sig_today = next(r for r in sig["rows"] if abs(r["match"] - sig["today"]) < 1e-9)
+    sig_low = min(sig["rows"], key=lambda r: r["match"])
 
     gaps = [
         {"priority": "P1", "gap": "Store sales are invisible to conversion lift",
@@ -35,8 +38,12 @@ def main():
                 "runs TBR with an in-flight A/A check, and reports stores and online separately.",
          "helps": "Food and beverage, household, OTC: anyone whose sales are mostly in stores"},
         {"priority": "P1", "gap": "Reported ROAS sits next to nothing that corrects it",
-         "evidence": f"The platform credited {ratio:.1f} times the online orders video added; an advertiser bidding to reported ROAS over-buys online.",
-         "ask": "Show a calibrated ROAS beside reported ROAS: reported divided by the ratio from the advertiser's latest conversion lift, with its date and interval.",
+         "evidence": f"The platform credited {ratio:.1f} times the online orders video added; an advertiser bidding to reported ROAS over-buys online. "
+                     f"And if matching falls from {100 * sig_today['match']:.0f}% to {100 * sig_low['match']:.0f}%, reported ROAS drops from "
+                     f"{sig_today['platform_reported_roas']:.2f} to {sig_low['platform_reported_roas']:.2f} while the true return stays at "
+                     f"{sig['true_online_iroas']:.2f}: a privacy change reads as a performance collapse.",
+         "ask": "Show a calibrated ROAS beside reported ROAS: reported divided by the ratio from the advertiser's latest conversion lift, with its date and interval, "
+                "and re-estimate the ratio when the match rate moves.",
          "helps": "Every advertiser that has run one lift study"},
         {"priority": "P2", "gap": "The brand lift planner sells budget, not precision",
          "evidence": f"Answers follow reach: halving the budget moved the awareness MDE only from {100 * d20['awareness']:.1f}pp to "
